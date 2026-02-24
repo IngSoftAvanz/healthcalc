@@ -304,3 +304,41 @@ Para cada categoría, probamos valores que están justo en el límite para asegu
 - Ejecutar los tests con informe de cobertura (previamente configurado en pom.xml): `mvn test`
 
 </details>
+
+### Casos de prueba
+
+Siguiendo una metodología de desarrollo dirigida por los tests (Test Driven Development, TDD), se han definido los escenarios de prueba para las distintas métricas antes de su implementación en el código.
+
+### Casos de Prueba - MAP (Mean Arterial Pressure)
+
+La **Presión Arterial Media (MAP)** representa la presión promedio en las arterias durante un ciclo cardíaco completo. Un valor mínimo de **60-65 mmHg** es necesario para mantener un estado saludable.
+
+* **Cálculo Estándar (Saludable):**
+    * **Entrada:** Sistólica en el intervalo $[110, 130]$ y Diastólica en $[70, 85]$.
+    * **Ejemplo de prueba:** PAS = 120, PAD = 80.
+    * **Resultado esperado:** Valor numérico exacto aplicando la fórmula $MAP = \frac{PAS + 2(PAD)}{3}$.(En este caso: **93.33 mmHg**).
+
+* **Límite de Salud (Mínimo):**
+    * **Entrada:** Sistólica en $[90, 100]$ y Diastólica en $[50, 65]$.
+    * **Ejemplo de prueba:** PAS = 95, PAD = 60.
+    * **Resultado esperado:** Valor $> 60$ mmHg, confirmando una perfusión adecuada.(En este caso: **71.66 mmHg**)
+
+* **Límite de Salud (Crítico):**
+    * **Entrada:** Sistólica $< 90$ y Diastólica $< 60$.
+    * **Ejemplo de prueba:** PAS = 85, PAD = 50.
+    * **Resultado esperado:** Valor $< 60$ mmHg, indicando alerta de perfusión insuficiente. (En este caso: **61.66 mmHg**)
+
+* **Entradas de Valores No Válidos:**
+    * **Entrada:** Valores negativos o iguales a cero ($<= 0$).
+    * **Ejemplo de prueba:** PAS = -120, PAD = 0.
+    * **Resultado esperado:** El sistema debe lanzar una **Excepción / Error**, ya que no existen presiones biológicas nulas o negativas.
+
+* **Inconsistencia Biológica:**
+    * **Entrada:** Presión Diastólica mayor o igual a la Sistólica ($PAS <= PAD$).
+    * **Ejemplo de prueba:** PAS = 70, PAD = 110.
+    * **Resultado esperado:** **Excepción / Error**. La presión sistólica siempre debe ser superior a la diastólica en un paciente vivo.
+
+* **Límites Físicos (Hard Limits):**
+    * **Entrada:** Sistólica $> 300$ o Diastólica $> 200$.
+    * **Ejemplo de prueba:** PAS = 350, PAD = 220.
+    * **Resultado esperado:** **Excepción / Error**. Valores que superan el rango biológico humano real para evitar fallos de entrada de datos.
