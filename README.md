@@ -313,32 +313,27 @@ Siguiendo una metodología de desarrollo dirigida por los tests (Test Driven Dev
 
 La **Presión Arterial Media (MAP)** representa la presión promedio en las arterias durante un ciclo cardíaco completo. Un valor mínimo de 60-65 mmHg es necesario para mantener un estado saludable.
 
-* **Cálculo Estándar (Saludable):**
-    * **Entrada:** Sistólica en el intervalo $[110, 130]$ y Diastólica en $[70, 85]$.
+* **Cálculo estándar:**
+    * **Entrada:** Valores que se encuentran dentro del rango fisiológico común para un adulto. Presión arterial sistólica debe de ser mayor o igual que 100 y menor o igual que 140. La presión diastólica debe de ser mayor o igual a 60 y menor o igual a 90. 
     * **Ejemplo de prueba:** PAS = 120, PAD = 80.
-    * **Resultado esperado:** Valor numérico exacto aplicando la fórmula $MAP = \frac{PAS + 2(PAD)}{3}$.(En este caso: 93.33 mmHg).
-
-* **Límite de Salud (Mínimo):**
-    * **Entrada:** Sistólica en $[90, 100]$ y Diastólica en $[50, 65]$.
-    * **Ejemplo de prueba:** PAS = 95, PAD = 60.
-    * **Resultado esperado:** Valor $> 60$ mmHg, confirmando una perfusión adecuada.(En este caso: 71.66 mmHg).
+    * **Resultado esperado:** Valor numérico exacto aplicando la fórmula $MAP = \frac{PAS + 2(PAD)}{3}$ (en este caso: 93.33 mmHg).
 
 * **Límite de Salud (Crítico):**
-    * **Entrada:** Sistólica $< 90$ y Diastólica $< 60$.
-    * **Ejemplo de prueba:** PAS = 85, PAD = 50.
-    * **Resultado esperado:** Valor $< 60$ mmHg, indicando alerta de perfusión insuficiente. (En este caso: 61.66 mmHg).
+    * **Entrada:** Valores tan bajos que el MAP baja de 60.
+    * **Ejemplo de prueba:** PAS = 80, PAD = 45.
+    * **Resultado esperado:** Valor menor a 60 mmHg, indicando alerta de perfusión insuficiente y estado crítico (en este caso: 56.66 mmHg).
 
 * **Entradas de Valores No Válidos:**
-    * **Entrada:** Valores negativos o iguales a cero ($<= 0$).
+    * **Entrada:** Valores negativos o iguales a cero.
     * **Ejemplo de prueba:** PAS = -120, PAD = 0.
     * **Resultado esperado:** El sistema lanzará una **Excepción / Error**, ya que no existen presiones biológicas nulas o negativas.
 
 * **Inconsistencia Biológica:**
-    * **Entrada:** Presión Diastólica mayor o igual a la Sistólica ($PAS <= PAD$).
+    * **Entrada:** Presión Diastólica mayor o igual a la Sistólica.
     * **Ejemplo de prueba:** PAS = 70, PAD = 110.
-    * **Resultado esperado:** **Excepción / Error**. La presión sistólica siempre debe ser superior a la diastólica en un paciente vivo.
+    * **Resultado esperado:** **Excepción / Error**. La presión sistólica siempre debe ser superior a la diastólica en un paciente.
 
 * **Límites Físicos:**
-    * **Entrada:** Sistólica $> 300$ o Diastólica $> 200$.
+    * **Entrada:** Valores que superan los límites de la supervivencia humana
     * **Ejemplo de prueba:** PAS = 350, PAD = 220.
-    * **Resultado esperado:** **Excepción / Error**. Valores que superan el rango biológico humano real para evitar fallos de entrada de datos.
+    * **Resultado esperado:** **Excepción / Error**. 
