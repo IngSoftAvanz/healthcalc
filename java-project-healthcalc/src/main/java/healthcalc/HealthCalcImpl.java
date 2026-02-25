@@ -47,4 +47,18 @@ public class HealthCalcImpl implements HealthCalc {
         return weight / Math.pow(height, 2);
     }
     
+    @Override
+    public float calculateMAP(float pas, float pad) throws InvalidHealthDataException {
+        if (pas <= 0 || pad <= 0) {
+            throw new InvalidHealthDataException("Las presiones no pueden ser cero o negativas.");
+        }
+        if (pad >= pas) {
+            throw new InvalidHealthDataException("La presión diastólica no puede ser mayor o igual a la sistólica.");
+        }
+        if (pas > 300 || pad > 200) {
+            throw new InvalidHealthDataException("Valores fuera del rango biológico humano.");
+        }
+
+        return (pas + 2 * pad) / 3;
+    }
 }
