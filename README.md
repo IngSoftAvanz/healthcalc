@@ -252,6 +252,45 @@ Para cada categoría, probamos valores que están justo en el límite para asegu
 
 </details>
 
+<details>
+<summary><b>Pruebas de Clasificación Completa (FULL) del IMC/BMI</b></summary>
+
+La clasificación completa (FULL) del IMC divide el estado nutricional en más categorías que la versión básica.  
+Se comprueban especialmente los valores límite para garantizar que el cambio de categoría es correcto.
+
+### Categorías FULL
+
+- Delgadez severa: IMC < 16.0
+- Delgadez moderada: 16.0 ≤ IMC < 17.0
+- Delgadez leve: 17.0 ≤ IMC < 18.5
+- Normopeso: 18.5 ≤ IMC < 25.0
+- Sobrepeso: 25.0 ≤ IMC < 30.0
+- Obesidad clase I: 30.0 ≤ IMC < 35.0
+- Obesidad clase II: 35.0 ≤ IMC < 40.0
+- Obesidad clase III: IMC ≥ 40.0
+
+### Casos de prueba
+
+Se prueban valores representativos y valores límite:
+
+- IMC = 15.9 → Delgadez severa  
+- IMC = 16.0 → Delgadez moderada  
+- IMC = 17.0 → Delgadez leve  
+- IMC = 18.5 → Normopeso  
+- IMC = 25.0 → Sobrepeso  
+- IMC = 30.0 → Obesidad clase I  
+- IMC = 35.0 → Obesidad clase II  
+- IMC = 40.0 → Obesidad clase III  
+
+También se verifican valores justo por debajo de cada límite para asegurar el cambio correcto de categoría.
+
+### Casos de seguridad
+
+- IMC ≤ 0 → debe rechazarse.
+- IMC extremadamente alto (por ejemplo >150) → debe rechazarse por no ser realista.
+- IMC no numérico (NaN o infinito) → debe rechazarse.
+
+</details>
 
 ## Instalación y ejecución
 
