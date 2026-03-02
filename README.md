@@ -302,6 +302,49 @@ Con estas pruebas se valida:
 
 </details>
 
+<details>
+<summary><b>Pruebas de Tasa Metabólica Basal (Mifflin-St.Jeor / BMR)</b></summary>
+
+### Objetivo
+Validar el cálculo correcto de la **Tasa Metabólica Basal (BMR)** mediante la ecuación de **Mifflin-St Jeor**, así como la gestión de errores ante datos inválidos.
+
+### Fórmulas utilizadas
+
+- **Hombres:**  
+  BMR = (10 × peso) + (6.25 × altura) − (5 × edad) + 5
+
+- **Mujeres:**  
+  BMR = (10 × peso) + (6.25 × altura) − (5 × edad) − 161
+
+---
+
+### Casos de prueba
+
+ **Cálculo válido (hombre)**  
+Se verifica el cálculo correcto con valores normales y tolerancia ±0.01.
+
+ **Cálculo válido (mujer)**  
+Se comprueba la correcta aplicación de la constante específica por sexo.
+
+ **Valor de diferencia entre sexos**  
+Con los mismos datos, la diferencia entre hombre y mujer debe ser **166 kcal/día**.
+
+ **Validación de datos inválidos**
+- Peso negativo → `InvalidHealthDataException`
+- Peso igual a cero → excepción
+- Altura negativa → excepción
+- Altura igual a cero → excepción
+
+---
+
+### Cobertura
+Estas pruebas garantizan:
+- Correcta implementación de Mifflin-St Jeor  
+- Diferenciación entre sexo  
+- Precisión decimal en cálculos  
+
+</details>
+
 
 ## Instalación y ejecución
 
