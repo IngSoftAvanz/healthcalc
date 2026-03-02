@@ -254,14 +254,9 @@ Se prueban valores representativos y valores situados en los límites de cada ra
 - Si el IMC es 30.0, el sistema debe clasificarlo como Obesidad clase I.  
 - Si el IMC es 35.0, el sistema debe clasificarlo como Obesidad clase II.  
 - Si el IMC es 40.0, el sistema debe clasificarlo como Obesidad clase III.  
-
-Además, si el IMC toma un valor justo por debajo de cada límite, el sistema debe mantener la categoría anterior.
-
-### Casos de seguridad
-
 - Si el IMC es menor o igual que 0, el sistema debe lanzar una excepción.  
-- Si el IMC es extremadamente alto (por ejemplo mayor que 150), el sistema debe rechazar el valor por no ser realista.  
-- Si el IMC no es un número válido (NaN o infinito), el sistema debe lanzar una excepción.
+- Si el IMC es mayor que 150, el sistema debe lanzar una excepción.  
+- Si el IMC no es un número real finito, el sistema debe lanzar una excepción.  
 
 </details>
 
