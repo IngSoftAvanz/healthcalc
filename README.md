@@ -225,70 +225,43 @@ Estas métricas requieren datos de signos vitales o resultados de laboratorio.
 </details>
 
 
-## Plan de pruebas
-
-Para garantizar que la calculadora sea fiable y segura, se han definido los siguientes casos de prueba divididos por categorías:
-
-<details>
-<summary><b>Pruebas de Cálculo del Índice de Masa Corporal (IMC o BMI)</b></summary>
-
-* **Cálculo correcto:** Se comprueba que, al introducir un peso y altura normales, el resultado sea el esperado matemáticamente.
-* **Protección ante datos imposibles:**
-    * El sistema debe rechazar pesos menores a 1 kg o mayores a 700 kg.
-    * El sistema debe rechazar alturas menores a 30 cm o mayores a 300 cm.
-* **Protección ante errores de escritura:** Se verifica que no se permitan valores negativos o iguales a cero.
-
-</details>
-
-<details>
-<summary><b>Pruebas de Clasificación del Estado de Salud basado en el IMC/BMI</b></summary>
-Para cada categoría, probamos valores que están justo en el límite para asegurar que el cambio de etiqueta es exacto:  
-
-* **Peso bajo (Underweight):** Se comprueba con valores por debajo de 18.5.
-* **Peso normal (Normal weight):** Se comprueba con valores desde 18.5 hasta justo antes de 25.
-* **Sobrepeso (Overweight):** Se comprueba con valores desde 25 hasta justo antes de 30.
-* **Obesidad (Obesity):** Se comprueba con valores desde 30 en adelante.
-* **Seguridad:** Se rechazan clasificaciones para resultados de IMC negativos o absurdamente altos (más de 150).
-
-</details>
-
 <details>
 <summary><b>Pruebas de Clasificación Completa (FULL) del IMC/BMI</b></summary>
 
 La clasificación completa (FULL) del IMC divide el estado nutricional en más categorías que la versión básica.  
-Se comprueban especialmente los valores límite para garantizar que el cambio de categoría es correcto.
+Se prueban especialmente los valores situados en los límites de cada rango para garantizar que el cambio de categoría se realiza correctamente.
 
 ### Categorías FULL
 
-- Delgadez severa: IMC < 16.0
-- Delgadez moderada: 16.0 ≤ IMC < 17.0
-- Delgadez leve: 17.0 ≤ IMC < 18.5
-- Normopeso: 18.5 ≤ IMC < 25.0
-- Sobrepeso: 25.0 ≤ IMC < 30.0
-- Obesidad clase I: 30.0 ≤ IMC < 35.0
-- Obesidad clase II: 35.0 ≤ IMC < 40.0
-- Obesidad clase III: IMC ≥ 40.0
+- Delgadez severa: IMC < 16.0  
+- Delgadez moderada: 16.0 ≤ IMC < 17.0  
+- Delgadez leve: 17.0 ≤ IMC < 18.5  
+- Normopeso: 18.5 ≤ IMC < 25.0  
+- Sobrepeso: 25.0 ≤ IMC < 30.0  
+- Obesidad clase I: 30.0 ≤ IMC < 35.0  
+- Obesidad clase II: 35.0 ≤ IMC < 40.0  
+- Obesidad clase III: IMC ≥ 40.0  
 
 ### Casos de prueba
 
-Se prueban valores representativos y valores límite:
+Se prueban valores representativos y valores situados en los límites de cada rango para comprobar que la clasificación es correcta.
 
-- IMC = 15.9 → Delgadez severa  
-- IMC = 16.0 → Delgadez moderada  
-- IMC = 17.0 → Delgadez leve  
-- IMC = 18.5 → Normopeso  
-- IMC = 25.0 → Sobrepeso  
-- IMC = 30.0 → Obesidad clase I  
-- IMC = 35.0 → Obesidad clase II  
-- IMC = 40.0 → Obesidad clase III  
+- Si el IMC es 15.9, el sistema debe clasificarlo como Delgadez severa.  
+- Si el IMC es 16.0, el sistema debe clasificarlo como Delgadez moderada.  
+- Si el IMC es 17.0, el sistema debe clasificarlo como Delgadez leve.  
+- Si el IMC es 18.5, el sistema debe clasificarlo como Normopeso.  
+- Si el IMC es 25.0, el sistema debe clasificarlo como Sobrepeso.  
+- Si el IMC es 30.0, el sistema debe clasificarlo como Obesidad clase I.  
+- Si el IMC es 35.0, el sistema debe clasificarlo como Obesidad clase II.  
+- Si el IMC es 40.0, el sistema debe clasificarlo como Obesidad clase III.  
 
-También se verifican valores justo por debajo de cada límite para asegurar el cambio correcto de categoría.
+Además, si el IMC toma un valor justo por debajo de cada límite, el sistema debe mantener la categoría anterior.
 
 ### Casos de seguridad
 
-- IMC ≤ 0 → debe rechazarse.
-- IMC extremadamente alto (por ejemplo >150) → debe rechazarse por no ser realista.
-- IMC no numérico (NaN o infinito) → debe rechazarse.
+- Si el IMC es menor o igual que 0, el sistema debe lanzar una excepción.  
+- Si el IMC es extremadamente alto (por ejemplo mayor que 150), el sistema debe rechazar el valor por no ser realista.  
+- Si el IMC no es un número válido (NaN o infinito), el sistema debe lanzar una excepción.
 
 </details>
 
