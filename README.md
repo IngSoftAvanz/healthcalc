@@ -56,12 +56,12 @@ Para que el proyecto cumpla con estándares de software médico, se deben inclui
 
 ![Clasificación del estado nutricional de una persona.](resources/images/bmi.jpeg)
 
-<details>
-* **CASOS DE USO**
-        1. **La estatura debe introducirse en centímetros
-        2. **La estatura debe ser un número mayor de 100
-        3. **La estatura debe ser un número menor de 300
-</details>
+
+  * **CASOS DE USO**
+    1.  La estatura debe introducirse en centímetros
+    2.  La estatura debe ser un número mayor de 100
+    3.  La estatura debe ser un número menor de 300
+
 
 
 ---
@@ -94,12 +94,17 @@ Para que el proyecto cumpla con estándares de software médico, se deben inclui
         - **Hombres:** $PCI = (Estatura en cm - 100) - \frac{Estatura - 150}{4}$
         - **Mujeres:** $PCI = (Estatura en cm - 100) - \frac{Estatura - 150}{2}$
 
-<details>
+
 * **CASOS DE USO**
-        1. **La estatura debe introducirse en centímetros
-        2. **La estatura debe ser un número mayor de 100
-        3. **La estatura debe ser un número menor de 300
-</details>
+     1.   El peso se mide en kilogramos
+     2.   La estatura se mide en centímetros
+     3.   El peso debe ser mayor a 1 kilogramo
+     4.   El peso debe ser menor a 700 kilogramos
+     5.   La estatura debe ser mayor a 100 centímetros
+     6.   La  estatura debe ser menor a 300 centímetros
+     7.   Los valores deben ser números naturales
+
+
 
     **Nota:** Para convertir la estatura de **cm a pulgadas**, hay que dividir los centímetros entre **2.54**.
 
@@ -147,12 +152,11 @@ Para que el proyecto cumpla con estándares de software médico, se deben inclui
     | **Mujer** | $\le 0.85$ | Pera (Ginoide) | Bajo / Moderado |
     | **Mujer** | $> 0.85$ | **Manzana (Androide)** | **Alto** |
 
-</details>
 * **CASOS DE USO**
-        1. **El perímetro debe introducirse en centímetros
-        2. **El perímetro debe ser mayor de 45 centímetros.
-        3. **El perímetro debe ser menor de 300 centímetros.
-</details>
+    1.  La circunferencia debe introducirse en centímetros
+    2.  La corcunferencia debe ser mayor de 45 centímetros.
+    3.  La circunferencia debe ser menor de 300 centímetros.
+
 
 <details>
 <summary><b>Métricas Metabólicas y Nutricionales</b></summary>
