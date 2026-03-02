@@ -251,7 +251,31 @@ Para cada categoría, probamos valores que están justo en el límite para asegu
 * **Seguridad:** Se rechazan clasificaciones para resultados de IMC negativos o absurdamente altos (más de 150).
 
 </details>
+<details>
+<summary><b>Pruebas de Medición del Perímetro Abdominal (WC - Waist Circumference)</b></summary>
 
+* **Cálculo y consistencia:** Se comprueba que el sistema aplique los umbrales correctos diferenciando por género (Hombre/Mujer).
+* **Protección ante datos imposibles:** El sistema debe rechazar perímetros de cintura menores a 30 cm o mayores a 250 cm.
+* **Protección ante errores de escritura:** Se verifica que no se permitan valores negativos o iguales a cero.
+
+</details>
+
+<details>
+<summary><b>Pruebas de Clasificación del Riesgo Cardiovascular basado en WC</b></summary>
+
+Para cada categoría y género, probamos valores que están justo en el límite para asegurar que el cambio de etiqueta es exacto:
+
+* **Hombres:**
+    * **Riesgo Bajo:** Se comprueba con valores por debajo de 94 cm.
+    * **Riesgo Elevado:** Se comprueba con valores desde 94 hasta justo antes de 102 cm.
+    * **Riesgo Muy Elevado:** Se comprueba con valores desde 102 cm en adelante.
+* **Mujeres:**
+    * **Riesgo Bajo:** Se comprueba con valores por debajo de 80 cm.
+    * **Riesgo Elevado:** Se comprueba con valores desde 80 hasta justo antes de 88 cm.
+    * **Riesgo Muy Elevado:** Se comprueba con valores desde 88 cm en adelante.
+* **Seguridad:** Se rechazan clasificaciones para perímetros absurdos o entradas donde no se haya especificado el género.
+
+</details>
 
 ## Instalación y ejecución
 
