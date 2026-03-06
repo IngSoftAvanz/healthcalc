@@ -252,6 +252,48 @@ Para cada categoría, probamos valores que están justo en el límite para asegu
 
 </details>
 
+<details>
+<summary><b>Pruebas de Cálculo del Peso Corporal Ideal (IBW)</b></summary>
+
+Para comprobar que el cálculo del peso corporal ideal funciona correctamente, se han definido varios casos de prueba basados en la fórmula de Lorentz:
+
+* **Cálculo correcto para hombres:**  
+Se verifica que, al introducir una altura válida en centímetros para un paciente masculino, el sistema devuelva el valor esperado según la fórmula.
+
+* **Cálculo correcto para mujeres:**  
+Se comprueba que el sistema aplique correctamente la versión de la fórmula correspondiente a pacientes femeninos y que el resultado obtenido sea el adecuado.
+
+* **Protección ante datos imposibles:**  
+El sistema debe rechazar estaturas fuera de los límites biológicamente razonables, es decir, menores de 30 cm o mayores de 300 cm.
+
+* **Validación de datos de entrada:**  
+También se comprueba que el sistema gestione correctamente valores de género no válidos o no reconocidos, lanzando una excepción o error adecuado.
+
+</details>
+
+<details>
+<summary><b>Pruebas de Cálculo de la Métrica NEWS2</b></summary>
+
+Para validar el funcionamiento del sistema de puntuación NEWS2 se han definido distintos escenarios clínicos:
+
+* **Paciente con constantes normales (Score 0):**  
+Se introducen valores normales de constantes vitales (frecuencia respiratoria, saturación de oxígeno, presión arterial, pulso, temperatura y estado de conciencia).  
+El resultado esperado es una puntuación total de 0.
+
+* **Paciente con alteraciones leves:**  
+Se prueban valores ligeramente fuera del rango normal para comprobar que el sistema asigna correctamente puntuaciones intermedias (1 o 2 puntos) según el parámetro afectado.
+
+* **Paciente con valores críticos:**  
+Se introducen valores extremos en diferentes constantes vitales para comprobar que el sistema asigna las puntuaciones máximas (hasta 3 puntos por parámetro) y que el cálculo total del NEWS2 es correcto.
+
+* **Control de valores inválidos:**  
+El sistema debe rechazar valores fisiológicamente imposibles, como saturaciones de oxígeno negativas o superiores al 100%, o temperaturas extremadamente altas.
+
+* **Validación del estado de conciencia:**  
+También se comprueba que el sistema detecte valores no válidos en la escala de conciencia (ACVPU) y genere el error correspondiente.
+
+</details>
+
 
 ## Instalación y ejecución
 
