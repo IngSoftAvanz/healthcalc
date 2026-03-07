@@ -96,9 +96,7 @@ class TestWHR:
         with pytest.raises(InvalidHealthDataException):
             self.health_calc.whr_classification(sex, whr)
 
-    @pytest.mark.parametrize("sex",
-                              ["X", " ", "Male"], 
-                              ids=lambda x: f"Sexo inválido: '{x}'")
+    @pytest.mark.parametrize("sex",["X", " ", "Male"], ids=lambda x: f"Sexo inválido: '{x}'")
     
     def test_whr_classification_sexo_invalido(self, sex):
         """Lanzar excepción cuando el sexo es inválido."""
