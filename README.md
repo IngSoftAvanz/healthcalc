@@ -55,7 +55,7 @@ Para que el proyecto cumpla con estándares de software médico, se deben inclui
 
 ![Clasificación del estado nutricional de una persona.](resources/images/bmi.jpeg)
 
----
+                            
 
 * **M2: Peso Corporal Ideal (PCI) o _Ideal Body Weight (IBW)_:** El PCI estima el peso teórico que se asocia con el menor riesgo de mortalidad y una mejor salud para un persona.
 
@@ -87,7 +87,6 @@ Para que el proyecto cumpla con estándares de software médico, se deben inclui
 
     **Nota:** Para convertir la estatura de **cm a pulgadas**, hay que dividir los centímetros entre **2.54**.
 
----
 
 * **M3: Área de Superficie Corporal (ASC) o _Body Surface Area (BSA)_:** El ASC es una medida clínica utilizada para calcular dosis precisas de medicamentos, especialmente en quimioterapia y fluidos intravenosos, y para evaluar la severidad de quemaduras.
 
@@ -95,7 +94,7 @@ Para que el proyecto cumpla con estándares de software médico, se deben inclui
 
     * **Fórmula (Mosteller):** $BSA = \sqrt{\frac{\text{altura (cm)} \times \text{peso (kg)}}{3600}}$    
 
----
+
 
 * **M4: Perímetro Abdominal (PA) o _Waist Circumference_ (WC):** Es la medición lineal de la circunferencia de la cintura. Se considera el indicador clínico directo de grasa visceral más sencillo y aceptado para predecir obesidad abdominal.
   
@@ -103,7 +102,7 @@ Para que el proyecto cumpla con estándares de software médico, se deben inclui
       - **Hombres:** $\ge 94\text{ - }102 \text{ cm}$  
       - **Mujeres:** $\ge 80\text{ - }88 \text{ cm}$
 
----
+
 
 * **M5: Índice de Cintura-Cadera (ICC) o _Waist-to-Hip Ratio_ (WHR):** Es ICC la relación entre el perímetro de la cintura y el de la cadera. Se utiliza para identificar la distribución de la grasa (cuerpo tipo "manzana" o "pera") y estimar el riesgo de enfermedades cardiovasculares.
   
@@ -166,7 +165,7 @@ Para que el proyecto cumpla con estándares de software médico, se deben inclui
         | **30 – 60** | `(11.472 × peso) + 873.1` | `(8.126 × peso) + 845.6` |
         | **> 60** | `(11.711 × peso) + 587.7` | `(9.082 × peso) + 658.5` |
 
----
+
 
 * **M7: Gasto Energético Diario Total (GEDT) o _Total Daily Energy Expenditure (TDEE)_:** El TDEE es la cantidad total de calorías que el cuerpo quema en 24 horas. Suma el metabolismo basal (funciones vitales en reposo), la actividad física, la digestión y el movimiento cotidiano. Es esencial para ajustar la nutrición (perder, ganar o mantener peso).
 
@@ -190,7 +189,7 @@ Estas métricas requieren datos de signos vitales o resultados de laboratorio.
     **Fórmula:** $PAM = \frac{PAS + 2(PAD)}{3}$  
     *(Donde PAS = Presión Arterial Sistólica y PAD = Presión Arterial Diastólica)*.
 
---- 
+
 
 * **M9: Índice de Adiposidad Visceral (VAI) o _Visceral Adiposity Index_ (VAI):** Es un indicador empírico que estima la función del tejido adiposo visceral y el riesgo cardiometabólico. Combina medidas físicas (IMC y CC) con parámetros lipídicos (Triglicéridos y HDL).
   
@@ -199,7 +198,7 @@ Estas métricas requieren datos de signos vitales o resultados de laboratorio.
         - **Mujeres:** $VAI = \left( \frac{CC}{36.58 + (1.89 \times IMC)} \right) \times \left( \frac{TG}{0.81} \right) \times \left( \frac{1.52}{HDL} \right)$  
     *(Donde CC = Circunferencia de Cintura en cm, TG = Triglicéridos y HDL en mmol/L)*.
 
---- 
+
 
 * **M10: Tasa de Filtración Glomerular Estimada (eGFR) o _Estimated Glomerular Filtration Rate_ (eGFR):** Es el "estándar de oro" para evaluar qué tan bien están filtrando la sangre los riñones. Es vital para la detección de la Enfermedad Renal Crónica (ERC) y para ajustar dosis de fármacos.
   
@@ -208,7 +207,7 @@ Estas métricas requieren datos de signos vitales o resultados de laboratorio.
       * **CKD-EPI (Moderna):** Utiliza logaritmos y variables de raza/sexo para mayor precisión (es la recomendada actualmente en software clínico).  
     * **Entradas necesarias:** Creatinina sérica (mg/dL), edad, sexo y etnia.  
 
---- 
+
 
 * **M11: Escala NEWS2 o _National Early Warning Score 2_:** Es un sistema de puntuación estandarizado para detectar el deterioro clínico agudo en pacientes adultos. En lugar de una fórmula aritmética simple, es un **sistema de puntos acumulativo** basado en rangos fisiológicos.
   
@@ -251,7 +250,44 @@ Para cada categoría, probamos valores que están justo en el límite para asegu
 * **Seguridad:** Se rechazan clasificaciones para resultados de IMC negativos o absurdamente altos (más de 150).
 
 </details>
+<details>
+<summary><b>Pruebas de Medición del Perímetro Abdominal (WC - Waist Circumference)</b></summary>
 
+* **Cálculo y consistencia:** Se comprueba que el sistema aplique los umbrales correctos diferenciando por género (Hombre/Mujer).
+* **Protección ante datos imposibles:** El sistema debe rechazar perímetros de cintura menores a 30 cm o mayores a 250 cm.
+* **Protección ante errores de escritura:** Se verifica que no se permitan valores negativos o iguales a cero.
+
+</details>
+
+<details>
+
+<summary><b>Pruebas de Clasificación del Riesgo Cardiovascular basado en WC</b></summary>
+
+Para cada categoría y género, probamos valores que están justo en el límite para asegurar que el cambio de etiqueta es exacto:
+
+* **Hombres:**
+    * **Riesgo Bajo:** Se comprueba con valores por debajo de 94 cm.
+    * **Riesgo Elevado:** Se comprueba con valores desde 94 hasta justo antes de 102 cm.
+    * **Riesgo Muy Elevado:** Se comprueba con valores desde 102 cm en adelante.
+* **Mujeres:**
+    * **Riesgo Bajo:** Se comprueba con valores por debajo de 80 cm.
+    * **Riesgo Elevado:** Se comprueba con valores desde 80 hasta justo antes de 88 cm.
+    * **Riesgo Muy Elevado:** Se comprueba con valores desde 88 cm en adelante.
+* **Seguridad:** Se rechazan clasificaciones para perímetros absurdos o entradas donde no se haya especificado el género.
+
+</details>
+
+<details>
+<summary><b>Pruebas de Cálculo del Peso Corporal Ideal (IBW) - Fórmula de Lorentz</b></summary>
+
+* **Cálculo correcto para hombres:** Se comprueba que, al introducir un paciente hombre con una altura estándar (ej. 180 cm), el resultado del peso ideal sea exactamente el esperado matemáticamente (72.5 kg).
+* **Cálculo correcto para mujeres:** Se comprueba que, al introducir una paciente mujer con una altura estándar (ej. 160 cm), el resultado del peso ideal sea exactamente el esperado matemáticamente (55.0 kg).
+* **Cálculo en el punto neutro:** Se verifica que, al introducir una altura de exactamente 150 cm, la fracción de la ecuación se anule, devolviendo el mismo peso ideal (50.0 kg) tanto para hombres como para mujeres.
+* **Protección ante datos imposibles (Hard Limits):** * El sistema debe rechazar alturas menores a 30 cm o mayores a 300 cm, tal y como se define en los requisitos no funcionales.
+* **Protección ante género inválido:** Se verifica que el sistema lance un error o excepción si se introduce un carácter o cadena de texto no reconocida para el género (diferente de 'H'/'M' o 'Hombre'/'Mujer').
+
+
+</details>
 
 ## Instalación y ejecución
 
