@@ -38,7 +38,7 @@ class HealthCalc(ABC):
         pass
 
     @abstractmethod
-    def news2(frecResp: float, oxSat: float, oxSup: bool, preArtSis: float, frecCard: float, consciente: bool, temp: float):
+    def news2(self, frecResp: float, oxSat: float, oxSup: bool, preArtSis: float, frecCard: float, consciente: str, temp: float) -> float:
         """Calculate NEWS2 score.
         
         :param frecResp: Respiratory rate (per minute)
@@ -46,7 +46,7 @@ class HealthCalc(ABC):
         :param oxSup: Oxigen support (True/False)
         :param preArtSis: Systolic blood pressure (mmHg)
         :param frecCard: Heart rate (per minute)
-        :param consciente: Concience level (True/False)
+        :param consciente: Concience level (cvpu/alert)
         :param temp: Temperature (ºC)
         :return: NEWS2 score
         :raises InvalidHealthDataException: If data is out of range

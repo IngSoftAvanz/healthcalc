@@ -45,15 +45,15 @@ class HealthCalcImpl(HealthCalc):
             raise InvalidHealthDataException("Gender must be 'man' or 'woman'.")
         return result
     
-    def news2(self, frecResp: float, oxSat: float, oxSup: bool, preArtSis: float, frecCard: float, consciente: str, temp: float):
+    def news2(self, frecResp: float, oxSat: float, oxSup: bool, preArtSis: float, frecCard: float, consciente: str, temp: float) -> float:
         news2 = 0
         
         # Frecuencia respiratoria
         if (frecResp >= 25 or frecResp <= 8):
             news2 = news2 + 3
-        elif (frecResp >= 21 or frecResp <= 24):
+        elif (frecResp >= 21 and frecResp <= 24):
             news2 = news2 + 2
-        elif (frecResp >= 9 or frecResp <= 11):
+        elif (frecResp >= 9 and frecResp <= 11):
             news2 = news2 + 1
 
         # Saturacion de oxigeno
@@ -85,32 +85,31 @@ class HealthCalcImpl(HealthCalc):
             news2 = news2 + 1
 
         # Nivel de consciencia
-        if (consciente == "cvpu"):
+        consciente_lower = consciente.lower().strip()
+        if (consciente_lower == "cvpu"):
             news2 = news2 + 3
+        elif (consciente_lower == "alerta" or consciente_lower == "alert"):
+            pass
+        else:
+            raise InvalidHealthDataException("Consciousness level must be 'alert'/'alerta' or 'cvpu'.")
 
         # Temperatura
-        if (temp <= 35):
+        if (temp <= 35.0):
             news2 = news2 + 3
-        elif (frecCard > 39):
+        elif (temp > 39.0):
             news2 = news2 + 2
-        elif (frecCard <= 36 or frecCard > 38):
+        elif (temp <= 36 or temp > 38):
             news2 = news2 + 1
 
         if frecResp <= 0 or frecResp >= 100:
-            raise InvalidHealthDataException("Respiratory rate must be between 0 - 100.")
+            raise InvalidHealthDataException("Respiratory rate must be between 0 - 100 rpm.")
         if oxSat <= 0 or oxSat >= 100:
-            raise InvalidHealthDataException("Oxigen saturation rate must be between 0 - 100 bpm.")
-        if preArtSis <= 0 or preArtSis >= 100:
-            raise InvalidHealthDataException("Systolic blood pressure must be between 0 -100 mmHg.")
+            raise InvalidHealthDataException("Oxigen saturation rate must be between 0 - 100 %.")
+        if preArtSis <= 0 or preArtSis >= 400:
+            raise InvalidHealthDataException("Systolic blood pressure must be between 0 - 400 mmHg.")
         if frecCard <= 0 or frecCard >= 300:
-            raise InvalidHealthDataException("Heart rate rate must be between 0 - 300 bpm.") 
+            raise InvalidHealthDataException("Heart rate rate must be between 0 - 300 lpm.") 
         if temp <= 20 or temp >= 50:
             raise InvalidHealthDataException("Oxigen saturation rate must be between 20 - 50 ºC.")
         
-        if news2 >= 5:
-            #result = "Red alert: score of " + str(news2)
-            result = news2
-        else:
-            result = news2
-        
-        return result
+        return news2
