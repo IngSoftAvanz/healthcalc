@@ -46,5 +46,4 @@ public class HealthCalcImpl implements HealthCalc {
         }
         return weight / Math.pow(height, 2);
     }
-    
 }
