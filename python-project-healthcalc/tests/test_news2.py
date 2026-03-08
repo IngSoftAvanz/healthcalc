@@ -40,6 +40,22 @@ class TestNEWS2:
             systolic_blood_pressure, heart_rate, level_of_consciousness, temperature)
 
         assert result == 6
+
+    def test_news2_paciente_observacion_alternativo(self):
+        """Cálculo de NEWS2 para paciente en observación (hecho para cubrir 100% de los casos)"""
+        respiratory_rate = 10
+        oxygen_saturation = 92
+        oxygen_support = False
+        systolic_blood_pressure = 95
+        heart_rate = 45
+        level_of_consciousness = "alert"
+        temperature = 35.5
+
+        result = self.health_calc.news2(respiratory_rate, oxygen_saturation, oxygen_support, 
+            systolic_blood_pressure, heart_rate, level_of_consciousness, temperature)
+
+        assert result == 7
+    
     
     def test_news2_paciente_critico(self):
         """Cálculo de NEWS2 con valores estándar válidos de paciente crítico"""
