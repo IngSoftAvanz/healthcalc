@@ -53,7 +53,9 @@ Para que el proyecto cumpla con estándares de software médico, se deben inclui
       - Sobrepeso ($25-29.9$)
       - Obesidad ($\ge 30$)
 
+
 ![Clasificación del estado nutricional de una persona.](resources/images/bmi.jpeg)
+
 
 ---
 
@@ -84,6 +86,7 @@ Para que el proyecto cumpla con estándares de software médico, se deben inclui
 
         - **Hombres:** $PCI = (Estatura en cm - 100) - \frac{Estatura - 150}{4}$
         - **Mujeres:** $PCI = (Estatura en cm - 100) - \frac{Estatura - 150}{2}$
+
 
     **Nota:** Para convertir la estatura de **cm a pulgadas**, hay que dividir los centímetros entre **2.54**.
 
@@ -235,7 +238,7 @@ Para garantizar que la calculadora sea fiable y segura, se han definido los sigu
 * **Cálculo correcto:** Se comprueba que, al introducir un peso y altura normales, el resultado sea el esperado matemáticamente.
 * **Protección ante datos imposibles:**
     * El sistema debe rechazar pesos menores a 1 kg o mayores a 700 kg.
-    * El sistema debe rechazar alturas menores a 30 cm o mayores a 300 cm.
+    * El sistema debe rechazar alturas menores a 0.30 m o mayores a 3.00 m.
 * **Protección ante errores de escritura:** Se verifica que no se permitan valores negativos o iguales a cero.
 
 </details>
@@ -249,6 +252,44 @@ Para cada categoría, probamos valores que están justo en el límite para asegu
 * **Sobrepeso (Overweight):** Se comprueba con valores desde 25 hasta justo antes de 30.
 * **Obesidad (Obesity):** Se comprueba con valores desde 30 en adelante.
 * **Seguridad:** Se rechazan clasificaciones para resultados de IMC negativos o absurdamente altos (más de 150).
+
+</details>
+
+<details>
+<summary><b>Pruebas de Cálculo del Peso Corporal Ideal (PCI) o Ideal Body Weight (IBW): Fórmula de Lorentz</b></summary>
+
+* **Cálculo correcto:** Se comprueba que, al introducir una altura normal, el resultado sea el esperado matemáticamente.
+* **Protección ante datos imposibles:**
+    * El sistema debe rechazar alturas menores a 1.00 m o mayores a 3.00 m.
+* **Protección ante errores de escritura:** 
+    * Se verifica que no se permitan valores negativos o iguales a cero en la altura.
+    * Se verifica que no se introduzcan caracteres distintos de "M" (hombre) o "F" (mujer) en el sexo.
+
+
+</details>
+
+<details>
+<summary><b>Pruebas de Índice de Cintura-Cadera (ICC) o Waist-to-Hip Ratio (WHR)</b></summary>
+
+* **Cálculo correcto:** Se comprueba que, al introducir unas medidas de cintura y cadera normales, el resultado sea el esperado matemáticamente.
+* **Protección ante datos imposibles:**
+    * El sistema debe rechazar cinturas menores a 0.45 m o mayores a 3.00 m.
+    * El sistema debe rechazar caderas menores a 0.45 m o mayores a 3.00 m.
+* **Protección ante errores de escritura:** 
+    * Se verifica que no se permitan valores negativos o iguales a cero.
+    * Se verifica que no se introduzcan caracteres distintos de "M" (hombre) o "F" (mujer) en el sexo.
+
+</details>
+
+<details>
+<summary><b>Pruebas de Clasificación de la Morfología basado en el ICC/WHR</b></summary>
+Para cada categoría, probamos valores que están justo en el límite para asegurar que el cambio de etiqueta es exacto:  
+
+* **Forma Manzana (Hombre):** Se comprueba con valores justo por encima de 0.90.
+* **Forma Pera (Hombre):** Se comprueba con valores desde 0.90 y menores.
+* **Forma Manzana (Mujer):** Se comprueba con valores justo por encima de 0.85.
+* **Forma Pera (Mujer):** Se comprueba con valores desde 0.85 y menores.
+* **Seguridad:** Se rechazan clasificaciones para resultados de ICC negativos o absurdamente altos (más de 5).
 
 </details>
 
