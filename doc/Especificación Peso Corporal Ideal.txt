@@ -7,7 +7,9 @@ Actor Principal: Usuario
 Ámbito (Scope): Marco lógico donde se ejecutan las operaciones de la herramienta de cálculo HealthCalc
 Nivel (Level): Objetivo de Usuario
 - Interesados y disparadores
-
+Usuario:
+Hospital:
+Disparador: Usuario solicita su resultado tras introducir los datos
 - Condiciones y Garantías
 Precondiciones: 
 Garantía de Éxito (Success Guarantee): 
