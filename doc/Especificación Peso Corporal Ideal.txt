@@ -1,0 +1,21 @@
+Especificación Peso Corporal Ideal (IBW) - Lorentz
+- Identificación y contexto
+ID: CU-03
+Nombre del Caso de Uso: Calcular Peso Corporal Ideal (IBW)
+Descripción: El sistema calcula el peso teórico saludable de un individuo basándose en su altura y género biológico utilizando la fórmula de Lorentz.
+Actor Principal: Usuario
+Ámbito (Scope): Marco lógico donde se ejecutan las operaciones de la herramienta de cálculo HealthCalc
+Nivel (Level): Objetivo de Usuario
+- Interesados y disparadores
+Usuario:
+Hospital:
+Disparador: Usuario solicita su resultado tras introducir los datos
+- Condiciones y Garantías
+Precondiciones: 
+Garantía de Éxito (Success Guarantee): 
+Garantía Mínima (Minimal Guarantee):
+- Flujos de eventos
+Disparador (Trigger):
+Escenario Principal de Éxito (Main Success Scenario):
+Extensiones (Flujos Alternativos):
+
