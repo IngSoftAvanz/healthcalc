@@ -25,13 +25,13 @@ Scenario: Clasificación con sexo inválido
 	When se obtiene la clasificación morfológica
 	Then se debe lanzar una excepción
 
-Scenario: Clasificación con sexo y WHR normales
+Scenario Outline: Clasificación con sexo y WHR normales
 	Given el usuario introduce un sexo <s>
 		and el WHR calculado es <whr>
 	When se obtiene la clasificación morfológica
 	Then el resultado debe ser <r>
 
-Ejemplos:
+Examples:
 | <s> | <whr> |   <r>   |
 |  M  |  0.78 |  Pear   |
 |  M  |  0.90 |  Pear   |
