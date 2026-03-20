@@ -292,7 +292,7 @@ Para cada categoría y género, probamos valores que están justo en el límite 
 ## Especificación de Casos de Uso
 <details>
 <summary><b>Documentación</b></summary>
-* [Especificación: Peso Corporal Ideal - Lorentz (CU-03)](doc/Especificación Peso Corporal Ideal.txt)
+* [Especificación: Peso Corporal Ideal - Lorentz (CU-03)](doc/especificacion_ibw.txt)
 </details>
 
 ## Instalación y ejecución
