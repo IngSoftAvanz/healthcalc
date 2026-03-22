@@ -20,3 +20,24 @@ Disparador: El usuario accede a la calculadora y selecciona la métrica IMC.
 Garantías
 - Garantía de Éxito: El IMC se calcula, se muestra su clasificación (OMS) y no se permiten datos fuera de rango.
 - Garantía Mínima: En caso de error en los datos de entrada, el sistema lanza una InvalidHealthDataException, no da un resultado inválido y lleva a la página de inicio.
+
+Escenario Principal de Éxito
+
+1. El usuario introduce el Peso (en kg) y la Altura (en cm).
+
+2. El sistema valida que el peso esté en el rango.
+
+3. El sistema valida que la altura esté en el rango.
+
+4. El sistema calcula el valor del IMC mediante la fórmula: IMC = peso / (altura/100)^2.
+
+5. El sistema verifica que el IMC resultante esté en el rango biológico posible.
+
+6. El sistema asigna la clasificación de la OMS (Bajo peso, Normal, Sobrepeso u Obesidad).
+
+7. El sistema devuelve y muestra el resultado al usuario.
+
+Extensiones
+2a. Peso fuera de rango: Si el peso es < 1 o > 700, el sistema lanza InvalidHealthDataException.
+3a. Altura fuera de rango: Si la altura es < 30 o > 300, el sistema lanza InvalidHealthDataException.
+4a. Valores negativos o cero: El sistema rechaza cualquier entrada <= 0 lanzando InvalidHealthDataException.
