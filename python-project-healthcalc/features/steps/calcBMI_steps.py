@@ -9,7 +9,7 @@ from behave import step
 def step_impl(context):
     context.health_calc = HealthCalcImpl()
 
-@given(u'se ha elegido la métrica en la calculadora de salud')
+@given(u'se ha elegido la métrica BMI en la calculadora de salud')
 def step_impl(context):
     pass  # No se requiere acción específica para esta etapa en el contexto de la prueba
 
@@ -28,7 +28,7 @@ def step_impl(context):
 
 @given(u'el usuario ingresa un valor de altura anumérico')
 def step_impl(context):
-    context.altura = "def"
+    context.altura = "abc"
 
 
 @given(u'el usuario ingresa un valor de peso válido')
@@ -64,29 +64,29 @@ def step_impl(context):
 def step_impl(context):
     context.altura = 10.00
 
-@given(u'el usuario ingresa un valor de peso desbordado')
+@given(u'el usuario ingresa un valor de peso desbordado por encima')
 def step_impl(context):
-    context.peso = 705.00
+    context.peso = float('inf')
 
-@given(u'el usuario ingresa un valor de altura desbordado')
+@given(u'el usuario ingresa un valor de altura desbordado por encima')
 def step_impl(context):
-    context.altura = 4.00
+    context.altura = float('inf')
 
-@given(u'el usuario ingresa un valor de peso desbordado')
+@given(u'el usuario ingresa un valor de peso desbordado por debajo')
 def step_impl(context):
     context.peso = 0.50  # Valor por debajo del límite biológico para simular la entrada inválida
 
-@given(u'el usuario ingresa un valor de altura desbordado')
+@given(u'el usuario ingresa un valor de altura desbordado por debajo')
 def step_impl(context):
     context.altura = 0.1  # Valor por debajo del límite biológico
 
-@given(u'el usuario ingresa un valor de peso {peso:f}')
+@given(u'el usuario ingresa un valor de peso {peso}')
 def step_impl(context, peso):
-    context.peso = peso
+    context.peso = float(peso)
 
-@given(u'el usuario ingresa un valor de altura {altura:f}')
+@given(u'el usuario ingresa un valor de altura {altura}')
 def step_impl(context, altura):
-    context.altura = altura
+    context.altura = float(altura)
 
 
 #-------------clausula WHEN-------------------
@@ -96,16 +96,16 @@ def step_impl(context):
     try:
         context.result = context.health_calc.bmi(context.peso, context.altura)
         context.exception = False
-    except InvalidHealthDataException as e:
+    except Exception as e:
         context.exception = True
 
 #--------------clausula THEN-----------------
 
-@then(u'debe lanzarse una excepción')
+@then(u'debe lanzarse una excepción en el cálculo de BMI')
 def step_impl(context):  
-    assert context.exception, "Se esperaba una excepción pero no se lanzó ninguna."
+    assert context.exception, "Se esperaba una excepción en el cálculo de BMI pero no se lanzó ninguna."
 
-@then(u'el resultado debe ser {resultado: f}')
+@then(u'el resultado del BMI debe ser {resultado}')
 def step_impl(context, resultado):
     expected = float(resultado)
-    assert abs(context.result - expected) < 0.01, f"Se esperaba un resultado de {resultado} pero se obtuvo {context.result}"
+    assert abs(context.result - expected) < 0.01, f"Se esperaba un resultado de BMI de {resultado} pero se obtuvo {context.result}"

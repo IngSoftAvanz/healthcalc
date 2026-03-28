@@ -9,20 +9,20 @@ Background:
 
 @ErrorHandling
 Scenario: Clasificación con BMI negativo
-	Given el calculado es negativo
+	Given el BMI calculado es negativo
 	When se obtiene la clasificación BMI
-	Then se debe lanzar una excepción
+	Then se debe lanzar una excepción en la clasificación BMI
 
 @ErrorHandling
 Scenario: Clasificación con BMI exorbitante
-	Given BMI calculado es exorbitante
+	Given el BMI calculado es exorbitante
 	When se obtiene la clasificación BMI
-	Then se debe lanzar una excepción
+	Then se debe lanzar una excepción en la clasificación BMI
 
 Scenario Outline: Clasificación con valores normales de BMI
 	Given el BMI calculado es <bmi>
 	When se obtiene la clasificación BMI
-	Then el resultado debe ser <result>
+	Then el resultado de la clasificación BMI debe ser <result>
 
 Examples:
 | bmi    | result         |

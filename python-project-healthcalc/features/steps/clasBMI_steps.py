@@ -29,7 +29,7 @@ def step_impl(context):
     context.bmi = 800  # Ejemplo de BMI exorbitante (mayor a 800)
 
 
-@given('el BMI calculado es {bmi:f}')
+@given(u'el BMI calculado es {bmi}')
 def step_impl(context, bmi):
     context.bmi = float(bmi)
 
@@ -46,11 +46,11 @@ def step_impl(context):
 
 
 #----------------------clausula THEN ------------------------
-@then(u'se debe lanzar una excepción')
+@then(u'se debe lanzar una excepción en la clasificación BMI')
 def step_impl(context):
-    assert context.exception , "Se esperaba una excepción, pero no se lanzó ninguna."
+    assert context.exception , "Se esperaba una excepción en la clasificación BMI, pero no se lanzó ninguna."
 
-@then(u'el resultado debe ser {resultado: s}')
+@then(u'el resultado de la clasificación BMI debe ser {resultado}')
 def step_impl(context, resultado):
     expected = context.result
-    assert expected == resultado == True, f"Se esperaba '{resultado}', pero se obtuvo '{expected}'." 
+    assert expected == resultado, f"Se esperaba la clasificación BMI '{resultado}', pero se obtuvo '{expected}'." 
