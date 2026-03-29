@@ -56,6 +56,6 @@ Escenario: Sexo inválido
   Dado que la altura es 170 cm
   Y el sexo es "other"
 
-  Cuando el sistema calcula el peso corporal
+  Cuando el sistema calcula el peso corporal ideal
 
   Entonces el sistema debe lanzar la excepción "InvalidHealthDataException"
