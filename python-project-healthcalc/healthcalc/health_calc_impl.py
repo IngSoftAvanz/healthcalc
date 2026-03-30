@@ -32,17 +32,22 @@ class HealthCalcImpl(HealthCalc):
 
 
     def lorentz(self, sex: str, height: float) -> float:
-        if height <= 0:
+        try:
+            height_value = float(height)
+        except (ValueError, TypeError):
+            raise InvalidHealthDataException("Height must be a valid number.")
+        
+        if height_value <= 0:
             raise InvalidHealthDataException("Height must be positive.")
-        if height < 1.00 or height > 3.00:
+        if height_value < 1.00 or height_value > 3.00:
             raise InvalidHealthDataException("Height must be within a possible biological range [1.00-3.00] m.")
         if sex.upper() != "M" and sex.upper() != "F":
             raise InvalidHealthDataException("Sex must be either 'M' (Male) or 'F' (Female).")
 
         if sex.upper() == "M":
-            return (height*100 - 100) - ((height*100 - 150)/4)
+            return (height_value*100 - 100) - ((height_value*100 - 150)/4)
         else:
-            return (height*100 - 100) - ((height*100 - 150)/2)
+            return (height_value*100 - 100) - ((height_value*100 - 150)/2)
         
     def whr(self, waist:float, hip:float) -> float:
         try:
