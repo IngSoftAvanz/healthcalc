@@ -8,12 +8,12 @@ def step_sistema_operativo(context):
     context.calc = HealthCalcImpl()
 
 
-@given('que el peso es {peso:d} kg')
+@given('que el peso es {peso:f} kg')
 def step_peso(context, peso):
     context.peso = peso
 
 
-@given('que la altura es {altura:d} cm')
+@given('que la altura es {altura:f} m')
 def step_altura(context, altura):
     context.altura = altura
 
@@ -30,8 +30,7 @@ def step_calcular_bmi(context):
 
 @then('el resultado debe coincidir con la fórmula del BMI')
 def step_resultado_bmi(context):
-    altura_metros = context.altura / 100
-    esperado = context.peso / (altura_metros ** 2)
+    esperado = context.peso / (context.altura ** 2)
     assert abs(context.resultado - esperado) < 0.01
 
 
