@@ -36,7 +36,6 @@ Para que el proyecto cumpla con estándares de software médico, se deben inclui
 </details>
 
 
-
 ## Métricas de HealthCalc
 
 <details>
@@ -343,5 +342,52 @@ Para cada categoría, probamos valores que están justo en el límite para asegu
 - Ejecutar la aplicación: Clic en Run usando el IDE.
 - Ejecutar los tests: Clic en Run Tests usando el IDE o con Maven: `mvn test`
 - Ejecutar los tests con informe de cobertura (previamente configurado en pom.xml): `mvn test`
+
+</details>
+
+## Behaviour Driven Development  
+
+<details>
+<summary><b>BMI</b></summary>
+
+Escribir aqui las historias de usuario y el titulo de los escenarios
+- 
+
+</details>
+
+<details>
+<summary><b>IBW</b></summary>
+
+
+### Feature: Cálculo del IBW
+
+- **Archivo .feature:** [features/calcIBW.feature](features/calcIBW.feature)
+- **Historia de usuario:** "As usuario de la calculadora, I want calcular el peso ideal corporal, So that conocer mi estado de salud mediante la métrica elegida"
+
+#### Escenarios de Error Handling (IBW)
+
+1. Cálculo de IBW con sexo inválido
+2. Cálculo de IBW con altura anumérica
+3. Cálculo de IBW con altura cero
+4. Cálculo de IBW con altura negativa
+5. Cálculo de IBW con altura por debajo del rango biológico
+6. Cálculo de IBW con altura por encima del rango biológico
+
+#### Escenario de Performance (IBW)
+
+- Cálculo de IBW con valores normales
+
+#### Scenario Outline (IBW)
+
+- Cálculo de IBW con valores de altura y sexo válidos
+
+
+</details>
+
+<details>
+<summary><b>WHR</b></summary>
+
+Escribir aqui las historias de usuario y el titulo de los escenarios
+- 
 
 </details>
