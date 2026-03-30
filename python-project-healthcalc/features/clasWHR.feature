@@ -1,7 +1,7 @@
 Feature: Obtener la clasificación WHR de una persona
-	Como usuario de la calculadora
-	Quiero obtener mi clasificación WHR
-	Para conocer mi morfología y estado de salud
+	As usuario de la calculadora
+	I want to obtener mi clasificación WHR
+	So that conocer mi morfología y estado de salud
 
 Background:
 	Given tengo el módulo de clasificación de WHR

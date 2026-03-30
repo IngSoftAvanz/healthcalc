@@ -387,7 +387,55 @@ Escribir aqui las historias de usuario y el titulo de los escenarios
 <details>
 <summary><b>WHR</b></summary>
 
-Escribir aqui las historias de usuario y el titulo de los escenarios
-- 
+### Feature: Cálculo del WHR
+[features/calcWHR.feature](features/calcWHR.feature)
+
+**Historia de usuario:**
+
+    As usuario de la calculadora
+
+    I want to calcular el ratio cintura-cadera
+
+    So that conocer mi estado de salud mediante la métrica elegida."
+
+#### Escenarios de Error Handling (calcWHR)
+
+1. Cálculo del WHR con perímetro de cintura anumérico
+2. Cálculo de WHR con perímetro de cadera anumérico
+3. Cálculo de WHR con perímetro de cintura cero
+4. Cálculo de WHR con perímetro de cadera cero
+5. Cálculo de WHR con perímetro de cintura negativo
+6. Cálculo de WHR con perímetro de cadera negativo
+7. Cálculo de WHR con perímetro de cintura exorbitante
+8. Cálculo de WHR con perímetro de cadera exorbitante
+9. Cálculo de WHR con perímetro de cintura desbordado
+10. Cálculo de WHR con perímetro de cadera desbordado
+11. Cálculo de WHR con perímetro de ambos desbordado
+
+#### Escenario de Performance(calcWHR)
+
+- Cálculo de WHR con perímetro de ambos igual
+
+#### Scenario Outline(calcWHR)
+- Cálculo de WHR con valores de cintura y cadera válido
+
+### Feature: Clasificación WHR
+[features/clasWHR.feature](features/clasWHR.feature)
+
+**Historia de usuario:**
+
+	As usuario de la calculadora
+
+	I want to obtener mi clasificación WHR
+
+	So that conocer mi morfología y estado de salud
+
+#### Escenarios de Error Handling (clasWHR)
+1. Clasificación con WHR negativo
+2. Clasificación con WHR exorbitante
+3. Clasificación con sexo inválido
+
+#### Scenario Outline(clasWHR)
+- Clasificación con sexo y WHR normales
 
 </details>
