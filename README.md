@@ -350,8 +350,49 @@ Para cada categoría, probamos valores que están justo en el límite para asegu
 <details>
 <summary><b>BMI</b></summary>
 
-Escribir aqui las historias de usuario y el titulo de los escenarios
-- 
+
+### Feature: Cálculo del BMI
+
+- **Archivo .feature:** [features/calcBMI.feature](features/calcBMI.feature)
+- **Historia de usuario:** "As usuario de la calculadora, I want calcular el índice de masa corporal, So that conocer mi estado de salud mediante la métrica elegida"
+
+#### Escenarios de Error Handling (BMI)
+
+1. Cálculo de BMI con peso anumérico
+2. Cálculo de BMI con altura anumérica
+3. Cálculo de BMI con peso cero
+4. Cálculo de BMI con altura cero
+5. Cálculo de BMI con peso negativo
+6. Cálculo de BMI con altura negativa
+7. Cálculo de BMI con peso exorbitante
+8. Cálculo de BMI con altura exorbitante
+9. Cálculo de BMI con peso desbordado por encima
+10. Cálculo de BMI con peso desbordado por debajo
+11. Cálculo de BMI con altura desbordada por encima
+12. Cálculo de BMI con altura desbordada por debajo
+
+#### Escenario de Performance (BMI)
+
+- Cálculo de BMI con valores normales
+
+#### Scenario Outline (BMI)
+
+- Cálculo de BMI con valores de peso y altura válidos
+
+### Feature: Obtención de la clasificación BMI
+
+- **Archivo .feature:** [features/clasBMI.feature](features/clasBMI.feature)
+- **Historia de usuario:** "As usuario de la calculadora, I want obtener mi clasificación BMI, So that conocer mi estado de salud"
+
+#### Escenarios de Error Handling (clasificación BMI)
+
+1. Clasificación con BMI negativo
+2. Clasificación con BMI exorbitante
+
+#### Scenario Outline (clasificación BMI)
+
+- Clasificación BMI con valores normales de BMI
+
 
 </details>
 
