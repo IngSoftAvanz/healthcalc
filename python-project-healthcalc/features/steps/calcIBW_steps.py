@@ -30,6 +30,10 @@ def step_impl(context):
 def step_impl(context):
     context.sexo = "M"
 
+@given(u'el usuario ingresa un sexo {sexo}')
+def step_impl(context, sexo):
+    context.sexo = sexo
+
 
 @given(u'el usuario ingresa una altura anumérica')
 def step_impl(context):
@@ -55,12 +59,11 @@ def step_impl(context):
 def step_impl(context):
     context.altura = 4.00
 
-
-@given(u'el usuario ingresa un sexo {sexo}')
-def step_impl(context, sexo):
-    context.sexo = sexo
-
 @given(u'el usuario ingresa una altura {altura:f}')
+def step_impl(context, altura):
+    context.altura = altura
+
+@given(u'el usuario ingresa una altura de {altura:f}')
 def step_impl(context, altura):
     context.altura = altura
 
@@ -82,7 +85,7 @@ def step_impl(context):
 def step_impl(context):  
     assert context.exception, "Se esperaba una excepción pero no se lanzó ninguna."
 
-@then(u'el resultado del IBW debe ser {resultado: f}')
+@then(u'el resultado del IBW debe ser {resultado:f}')
 def step_impl(context, resultado):
     expected = float(resultado)
     assert abs(context.result - expected) < 0.01, f"Se esperaba un resultado de {resultado} pero se obtuvo {context.result}"

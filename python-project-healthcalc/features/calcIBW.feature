@@ -51,20 +51,20 @@ Scenario: Cálculo de IBW con altura por encima del rango biológico
 
 @Performance
 Scenario: Cálculo de IBW con valores normales
-	Given el usuario ingresa el sexo mujer
-		and el usuario ingresa un valor de altura de 1.50
+	Given el usuario ingresa un sexo F
+		and el usuario ingresa una altura de 1.50
 	When se calcula el peso ideal corporal
 	Then el resultado del IBW debe ser 50.0
 
 Scenario Outline: Cálculo de IBW con valores de altura y sexo válidos
 
-	Given el usuario ingresa un valor de estatura <estatura>
-		and el usuario ingresa un valor de sexo <sexo>
+	Given el usuario ingresa un sexo <sexo>
+		and el usuario ingresa una altura <estatura>
 	When se calcula el peso ideal corporal
 	Then el resultado del IBW debe ser <resultado>
 
 	Examples:
-		|  altura   |  sexo    |  resultado  |
+		|  estatura |  sexo    |  resultado  |
 		| 1.00      | M        | 12.5        |
 		| 1.00      | F        | 25.0        |
 		| 1.50      | M        | 50.0        |
