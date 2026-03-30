@@ -353,7 +353,7 @@ Para cada categoría, probamos valores que están justo en el límite para asegu
 
 ### Feature: Cálculo del BMI
 
-- **Archivo .feature:** [features/calcBMI.feature](features/calcBMI.feature)
+- **Archivo .feature:** [python-project-healthcalc/features/calcBMI.feature](python-project-healthcalc/features/calcBMI.feature)
 - **Historia de usuario:** "As usuario de la calculadora, I want calcular el índice de masa corporal, So that conocer mi estado de salud mediante la métrica elegida"
 
 #### Escenarios de Error Handling (BMI)
@@ -381,7 +381,7 @@ Para cada categoría, probamos valores que están justo en el límite para asegu
 
 ### Feature: Obtención de la clasificación BMI
 
-- **Archivo .feature:** [features/clasBMI.feature](features/clasBMI.feature)
+- **Archivo .feature:** [python-project-healthcalc/features/clasBMI.feature](python-project-healthcalc/features/clasBMI.feature)
 - **Historia de usuario:** "As usuario de la calculadora, I want obtener mi clasificación BMI, So that conocer mi estado de salud"
 
 #### Escenarios de Error Handling (clasificación BMI)
@@ -402,7 +402,7 @@ Para cada categoría, probamos valores que están justo en el límite para asegu
 
 ### Feature: Cálculo del IBW
 
-- **Archivo .feature:** [features/calcIBW.feature](features/calcIBW.feature)
+- **Archivo .feature:** [python-project-healthcalc/features/calcIBW.feature](python-project-healthcalc/features/calcIBW.feature)
 - **Historia de usuario:** "As usuario de la calculadora, I want calcular el peso ideal corporal, So that conocer mi estado de salud mediante la métrica elegida"
 
 #### Escenarios de Error Handling (IBW)
