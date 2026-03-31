@@ -419,3 +419,23 @@ Estas pruebas garantizan:
 - Ejecutar los tests con informe de cobertura (previamente configurado en pom.xml): `mvn test`
 
 </details>
+
+## Behaviour Driven Development
+
+### IBW - Ideal Body Weight (Peso Corporal Ideal)
+
+**Historia de usuario**  
+Como usuario de la calculadora de salud,  
+quiero calcular mi peso corporal ideal,  
+para conocer un peso recomendado según mi altura y sexo.
+
+**Escenarios**
+
+- Cálculo válido para hombre  
+- Cálculo válido para mujer  
+- Altura negativa  
+- Altura igual a cero  
+- Sexo inválido  
+
+**Fichero feature**  
+[Ver ibw.feature](python-project-healthcalc/features/ibw.feature)
