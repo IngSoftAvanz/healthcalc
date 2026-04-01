@@ -2,25 +2,55 @@ from behave import given, when, then
 from healthcalc.health_calc_impl import HealthCalcImpl
 from healthcalc.exceptions import InvalidHealthDataException
 
-@given('que el peso es {peso:f} kg')
+
+@given('un peso aproximado de {peso:f} kg')
+def step_peso_aproximado(context, peso):
+    context.peso = peso
+
+
+@given('un peso nulo de {peso:f} kg')
+def step_peso_nulo(context, peso):
+    context.peso = peso
+
+
+@given('un peso de {peso:f} kg')
 def step_peso(context, peso):
     context.peso = peso
 
 
-@given('que la altura es {altura:f} cm')
+@given('una altura aproximada de {altura:f} cm')
+def step_altura_aproximada(context, altura):
+    context.altura = altura
+
+
+@given('una altura de {altura:f} cm')
 def step_altura(context, altura):
     context.altura = altura
 
 
-@given('que la edad es {edad:d} años')
+@given('una altura dada de {altura:f} cm')
+def step_altura_dada(context, altura):
+    context.altura = altura
+
+
+@given('una altura nula de {altura:f} cm')
+def step_altura_nula(context, altura):
+    context.altura = altura
+
+
+@given('una edad de {edad:d} años')
 def step_edad(context, edad):
     context.edad = edad
 
 
+@given('un sexo masculino "{sexo}"')
+def step_sexo_masculino(context, sexo):
+    context.sexo = sexo
 
 
-@when('el sistema calcula el metabolismo basal con Mifflin-St Jeor')
-def step_calcular(context):
+
+@when('solicito calcular el BMR')
+def step_calcular_bmr(context):
     try:
         context.resultado = context.calc.bmr(
             context.peso,
@@ -34,16 +64,18 @@ def step_calcular(context):
         context.excepcion = e
 
 
-@then('el resultado debe coincidir con la fórmula de Mifflin-St Jeor')
-def step_resultado(context):
-    if context.sexo == "male":
-        esperado = 10 * context.peso + 6.25 * context.altura - 5 * context.edad + 5
-    else:
-        esperado = 10 * context.peso + 6.25 * context.altura - 5 * context.edad - 161
-
-    assert abs(context.resultado - esperado) < 0.01
+@then('el resultado del cálculo debe ser {esperado:f}')
+def step_resultado(context, esperado):
+    assert context.excepcion is None, f"Se produjo una excepción inesperada: {context.excepcion}"
+    assert abs(context.resultado - esperado) < 0.01, \
+        f"Esperado {esperado}, obtenido {context.resultado}"
 
 
-@then('el sistema debe lanzar la excepción "InvalidHealthDataException"')
-def step_error(context):
+@then('se debe mostrar por pantalla un error de datos inválidos')
+def step_error_1(context):
+    assert isinstance(context.excepcion, InvalidHealthDataException)
+
+
+@then('se debe mostrar un error por pantalla de datos inválidos')
+def step_error_2(context):
     assert isinstance(context.excepcion, InvalidHealthDataException)
