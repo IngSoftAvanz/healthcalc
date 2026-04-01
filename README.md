@@ -425,9 +425,8 @@ Para cada categoría, probamos valores que están justo en el límite para asegu
 <summary><b>WHR</b></summary>
 
 ### Feature: Cálculo del WHR
-[features/calcWHR.feature](features/calcWHR.feature)
-
-**Historia de usuario:**
+- **Archivo .feature:** [features/calcWHR.feature](features/calcWHR.feature)
+- **Historia de usuario:**
 
     As usuario de la calculadora
 
@@ -457,9 +456,8 @@ Para cada categoría, probamos valores que están justo en el límite para asegu
 - Cálculo de WHR con valores de cintura y cadera válido
 
 ### Feature: Clasificación WHR
-[features/clasWHR.feature](features/clasWHR.feature)
-
-**Historia de usuario:**
+- **Archivo.feature:** [features/clasWHR.feature](features/clasWHR.feature)
+- **Historia de usuario:**
 
 	As usuario de la calculadora
 
@@ -467,12 +465,12 @@ Para cada categoría, probamos valores que están justo en el límite para asegu
 
 	So that conocer mi morfología y estado de salud
 
-#### Escenarios de Error Handling (clasWHR)
+#### Escenarios de Error Handling 
 1. Clasificación con WHR negativo
 2. Clasificación con WHR exorbitante
 3. Clasificación con sexo inválido
 
-#### Scenario Outline(clasWHR)
+#### Scenario Outline
 - Clasificación con sexo y WHR normales
 
 </details>
