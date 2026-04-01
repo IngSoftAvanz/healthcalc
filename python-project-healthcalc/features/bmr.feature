@@ -9,7 +9,7 @@ Característica: Cálculo de la tasa metabólica basal Mifflin-St Jeor (BMR)
   Antecedentes:
     Dado que el sistema HealthCalc está operativo
 
-  Escenario: Calcular BMR válida para un hombre
+  Escenario: Calcular BMR válido para un hombre
     Dado un peso aproximado de 70.0 kg
     Y una altura aproximada de 175.0 cm
     Y una edad de 30 años
@@ -17,7 +17,7 @@ Característica: Cálculo de la tasa metabólica basal Mifflin-St Jeor (BMR)
     Cuando solicito calcular el BMR
     Entonces el resultado del cálculo debe ser 1648.75
 
-  Escenario: Calcular BMR válida para una mujer
+  Escenario: Calcular BMR válido para una mujer
     Dado un peso aproximado de 60.0 kg
     Y una altura aproximada de 165.0 cm
     Y una edad de 25 años
@@ -39,7 +39,7 @@ Característica: Cálculo de la tasa metabólica basal Mifflin-St Jeor (BMR)
     Y una edad de 30 años
     Y un sexo masculino "male"
     Cuando solicito calcular el BMR
-    Entonces se debe mostrar un error por pantalla de datos inválidos
+    Entonces se debe mostrar por pantalla un error de datos inválidos
 
   Escenario: Error con altura negativa
     Dado un peso aproximado de 70.0 kg
@@ -47,7 +47,7 @@ Característica: Cálculo de la tasa metabólica basal Mifflin-St Jeor (BMR)
     Y una edad de 30 años
     Y un sexo masculino "male"
     Cuando solicito calcular el BMR
-    Entonces se debe mostrar un error por pantalla de datos inválidos
+    Entonces se debe mostrar por pantalla un error de datos inválidos
 
   Escenario: Error con altura nula
     Dado un peso de 70.0 kg
@@ -55,4 +55,4 @@ Característica: Cálculo de la tasa metabólica basal Mifflin-St Jeor (BMR)
     Y una edad de 30 años
     Y un sexo masculino "male"
     Cuando solicito calcular el BMR
-    Entonces se debe mostrar un error por pantalla de datos inválidos
+    Entonces se debe mostrar por pantalla un error de datos inválidos
