@@ -443,7 +443,7 @@ Para cada categoría, probamos valores que están justo en el límite para asegu
 <summary><b>WHR</b></summary>
 
 ### Feature: Cálculo del WHR
-- **Archivo .feature:** [python-project-healthcalc/features/calcWHR.feature](features/calcWHR.feature)
+- **Archivo .feature:** [python-project-healthcalc/features/calcWHR.feature](python-project-healthcalc/features/calcWHR.feature)
 - **Historia de usuario:**
 
     ```
@@ -474,7 +474,7 @@ Para cada categoría, probamos valores que están justo en el límite para asegu
 - Cálculo de WHR con valores de cintura y cadera válido
 
 ### Feature: Clasificación WHR
-- **Archivo.feature:** [python-project-healthcalc/features/clasWHR.feature](features/clasWHR.feature)
+- **Archivo.feature:** [python-project-healthcalc/features/clasWHR.feature](python-project-healthcalc/features/clasWHR.feature)
 - **Historia de usuario:**
 
     ```
