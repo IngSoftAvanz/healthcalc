@@ -3,6 +3,11 @@ from healthcalc.health_calc_impl import HealthCalcImpl
 from healthcalc.exceptions import InvalidHealthDataException
 
 
+@given('que el sistema HealthCalc está operativo')
+def step_sistema_operativo(context):
+    context.calc = HealthCalcImpl()
+
+
 @given('un peso aproximado de {peso:f} kg')
 def step_peso_aproximado(context, peso):
     context.peso = peso
@@ -47,6 +52,10 @@ def step_edad(context, edad):
 def step_sexo_masculino(context, sexo):
     context.sexo = sexo
 
+
+@given('un sexo femenino "{sexo}"')
+def step_sexo_femenino(context, sexo):
+    context.sexo = sexo
 
 
 @when('solicito calcular el BMR')
