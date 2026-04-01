@@ -2,12 +2,6 @@ from behave import given, when, then
 from healthcalc.health_calc_impl import HealthCalcImpl
 from healthcalc.exceptions import InvalidHealthDataException
 
-
-@given('que el sistema HealthCalc está operativo')
-def step_sistema_operativo(context):
-    context.calc = HealthCalcImpl()
-
-
 @given('que el peso es {peso:f} kg')
 def step_peso(context, peso):
     context.peso = peso
@@ -23,9 +17,6 @@ def step_edad(context, edad):
     context.edad = edad
 
 
-@given('que el sexo es "{sexo}"')
-def step_sexo(context, sexo):
-    context.sexo = sexo
 
 
 @when('el sistema calcula el metabolismo basal con Mifflin-St Jeor')
