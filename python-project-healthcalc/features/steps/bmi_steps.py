@@ -3,17 +3,12 @@ from healthcalc.health_calc_impl import HealthCalcImpl
 from healthcalc.exceptions import InvalidHealthDataException
 
 
-@given('que el sistema HealthCalc está operativo')
-def step_sistema_operativo(context):
-    context.calc = HealthCalcImpl()
-
-
 @given('que el peso es {peso:f} kg')
 def step_peso(context, peso):
     context.peso = peso
 
 
-@given('que la altura es {altura:f} m')
+@given('la altura es {altura:f} m')
 def step_altura(context, altura):
     context.altura = altura
 
@@ -32,8 +27,3 @@ def step_calcular_bmi(context):
 def step_resultado_bmi(context):
     esperado = context.peso / (context.altura ** 2)
     assert abs(context.resultado - esperado) < 0.01
-
-
-@then('el sistema debe lanzar la excepción "InvalidHealthDataException"')
-def step_excepcion(context):
-    assert isinstance(context.excepcion, InvalidHealthDataException)
