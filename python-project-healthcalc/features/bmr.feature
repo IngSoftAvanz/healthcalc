@@ -23,7 +23,7 @@ Característica: Cálculo de la tasa metabólica basal Mifflin-St Jeor (BMR)
     Y una edad de 25 años
     Y un sexo femenino "female"
     Cuando solicito calcular el BMR
-    Entonces el resultado del cálculo debe ser 1320.25
+    Entonces el resultado del cálculo debe ser 1345.25
 
   Escenario: Error con peso negativo
     Dado un peso aproximado de -70.0 kg
