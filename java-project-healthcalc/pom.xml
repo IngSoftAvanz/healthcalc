@@ -1,6 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
+  
   <groupId>uma.isa</groupId>
   <artifactId>java-project-healthcalc</artifactId>
   <packaging>jar</packaging>
@@ -29,7 +30,7 @@
         <version>7.34.3</version>
         <type>pom</type>
         <scope>import</scope>
-    </dependency>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 
@@ -37,6 +38,12 @@
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.junit.platform</groupId>
+      <artifactId>junit-platform-suite</artifactId>
       <scope>test</scope>
     </dependency>
 
@@ -84,7 +91,8 @@
       <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
-        <version>0.8.14</version> <executions>
+        <version>0.8.14</version> 
+        <executions>
             <execution>
                 <goals>
                     <goal>prepare-agent</goal>
