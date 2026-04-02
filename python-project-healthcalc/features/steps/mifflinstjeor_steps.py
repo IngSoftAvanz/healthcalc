@@ -48,6 +48,10 @@ def step_sexo_masculino(context, sexo):
     context.sexo = sexo
 
 
+@given('un sexo femenino "{sexo}"')
+def step_sexo_femenino(context, sexo):
+    context.sexo = sexo
+
 
 @when('solicito calcular el BMR')
 def step_calcular_bmr(context):
