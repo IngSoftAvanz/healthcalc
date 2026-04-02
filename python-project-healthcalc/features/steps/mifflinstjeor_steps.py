@@ -3,9 +3,6 @@ from healthcalc.health_calc_impl import HealthCalcImpl
 from healthcalc.exceptions import InvalidHealthDataException
 
 
-@given('que el sistema HealthCalc está operativo')
-def step_sistema_operativo(context):
-    context.calc = HealthCalcImpl()
 
 
 @given('un peso aproximado de {peso:f} kg')
