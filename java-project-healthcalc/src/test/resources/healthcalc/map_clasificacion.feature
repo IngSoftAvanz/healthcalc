@@ -1,3 +1,4 @@
+# language: es
 Característica: Clasificación del estado de perfusión a partir de la MAP
 
   Como usuario
