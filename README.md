@@ -351,6 +351,32 @@ A partir del valor numérico obtenido, el sistema categoriza el estado del pacie
     * **Resultado esperado:** "High".
 </details>
 
+## Behaviour Driven Development
+
+### Historia de usuario - Cálculo de la Presión Arterial Media (MAP)
+
+**Como** usuario, **quiero** calcular la presión arterial media a partir de la presión sistólica y diastólica, **para** conocer mi presión media de forma correcta.
+
+Escenarios:
+- Calcular la MAP con valores válidos
+- Error por valores negativos o iguales a cero
+- Error por inconsistencia biológica
+- Error por valores fuera de los límites físicos
+
+Fichero: [map_calculo.feature](java-project-healthcalc/src/test/resources/healthcalc/map_calculo.feature)
+
+### Historia de usuario: Clasificación del estado de perfusión a partir de la MAP
+
+**Como** usuario, **quiero** conocer la clasificación de mi MAP, **para** saber si mi estado es bajo, normal o alto.
+
+Escenarios:
+- Clasificar una MAP baja
+- Clasificar una MAP normal
+- Clasificar una MAP alta
+- Clasificar una MAP normal en el límite inferior
+- Clasificar una MAP normal en el límite superior
+
+Fichero: [map_clasificacion.feature](java-project-healthcalc/src/test/resources/healthcalc/map_clasificacion.feature)
 
 ## Instalación y ejecución
 
