@@ -1,4 +1,4 @@
-Feature: Cálculo del IBW de un número
+Feature: Cálculo del PEso Ideal IBW
   Como usuario ede la aplicación HealthCalc
   Quiero calcular El Ideal Body Weight (IBW) de una persona basándome en su altura y genero
   Para obtener información de mi salud.
