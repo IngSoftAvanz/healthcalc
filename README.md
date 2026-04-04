@@ -289,6 +289,23 @@ Para cada categoría, probamos valores que están justo en el límite para asegu
 
 </details>
 
+## Behaviour Driven Development
+
+<u>Historia de usuario 1</u>: [Cálculo del IBW](<java-project-healthcalc/src/test/Resources/healthcalc/IBW.feature>). 
+
+**Como** usuario ede la aplicación HealthCalc
+
+**Quiero** calcular El Ideal Body Weight (IBW) de una persona basándome en su altura y género 
+
+**Para** obtener información de mi salud.
+
+<u>*Scenarios*</u>:
+
+    *  Verificar cálculos exitosos estándar.
+    *  Cálculo del IBW en los límites biológicos.
+    *  Intento de cálculo con altura inválida.
+    *  Intento de cálculo con género inválido.
+
 ## Instalación y ejecución
 
 <details>
