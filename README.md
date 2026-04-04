@@ -293,7 +293,7 @@ Para cada categoría, probamos valores que están justo en el límite para asegu
 
 <u>Historia de usuario 1</u>: [Cálculo del IBW](<java-project-healthcalc/src/test/Resources/healthcalc/IBW.feature>). 
 
-**Como** usuario ede la aplicación HealthCalc
+**Como** usuario de la aplicación HealthCalc
 
 **Quiero** calcular El Ideal Body Weight (IBW) de una persona basándome en su altura y género 
 
@@ -305,6 +305,21 @@ Para cada categoría, probamos valores que están justo en el límite para asegu
     *  Cálculo del IBW en los límites biológicos.
     *  Intento de cálculo con altura inválida.
     *  Intento de cálculo con género inválido.
+
+<u>Historia de usuario 2</u>: [Cálculo del BSA](<java-project-healthcalc/src/test/Resources/healthcalc/BSA.feature>). 
+
+**Como** usuario de la aplicación HealthCalc
+
+**Quiero** calcular mi Área de Superficie Corporal (BSA) a partir de mi peso y altura 
+
+**Para** obtener información clínica precisa sobre mi estado de salud
+
+<u>*Scenarios*</u>:
+
+    *  Verificación de cálculos exitosos estándar.
+    *  Cálculo del BSA en los límites biológicos permitidos.
+    *  Intento de cálculo con peso inválido o fuera de rango.
+    *  Intento de cálculo con altura inválida o fuera de rango.
 
 ## Instalación y ejecución
 
