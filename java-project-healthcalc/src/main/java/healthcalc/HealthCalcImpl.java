@@ -69,6 +69,7 @@ public class HealthCalcImpl implements HealthCalc {
         }
         return weight;
     }
+    
     public float calculateMAP(float pas, float pad) throws InvalidHealthDataException {
 
         if (pas <= 0 || pad <= 0) {
