@@ -306,9 +306,9 @@ Como usuario preocupado por mi salud (*health-conscious user*), quiero ver mi cl
 
 [Fichero feature](python-project-healthcalc/features/bmi_classification.feature)
 
-
-
 ---
+
+### IBW Calculation
 
 **Historia de usuario:**
 Como usuario (*user*), quiero calcular mi peso ideal, para tener una referencia saludable para mi altura.
