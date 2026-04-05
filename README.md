@@ -319,7 +319,7 @@ Como usuario (*user*), quiero calcular mi peso ideal, para tener una referencia 
 [Fichero feature](python-project-healthcalc/features/ibw.feature)
 
 ---
-### 📈 Basal Metabolic Rate (WHO)
+### Basal Metabolic Rate (WHO)
 
 **Historia de usuario:**
 Como entusiasta del fitness (*fitness enthusiast*), quiero calcular mi BMR, para saber mis necesidades diarias de calorías en reposo.
