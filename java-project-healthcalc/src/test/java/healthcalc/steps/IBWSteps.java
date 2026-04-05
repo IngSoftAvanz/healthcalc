@@ -20,12 +20,12 @@ public class IBWSteps {
     private boolean errorLanzado;
 
     @Dado("la calculadora de IBW está iniciada")
-    public void la_calculadora_de_IBW_está_iniciada() {
+    public void iniciarCalculadora() {
         calculadora = new HealthCalcImpl();
     }
     
     @Dado("una altura de {int} cm")
-    public void la_altura_es_cm(int altura) {
+    public void la_altura_es(int altura) {
         this.altura = altura;
     }
 
@@ -35,7 +35,7 @@ public class IBWSteps {
     }
     
     @Cuando("solicito calcular el IBW")
-    public void ejecuto_la_operación_de_IBW() {
+    public void ejecutarIBW() {
         try {
             resultadoIBW = calculadora.ibw(altura, sexo);
             errorLanzado = false;
@@ -49,9 +49,9 @@ public class IBWSteps {
         assertEquals(ibwEsperado, resultadoIBW, 0.01);
     }
 
-    @Entonces("el sistema informa que los valores no son los adecuados")
+    @Entonces("el sistema informa que los datos no son los adecuados")
     public void verificarError() {
-        assertEquals(true, errorLanzado);
+        assertTrue(errorLanzado);
     }
 
 }
