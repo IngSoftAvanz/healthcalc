@@ -353,6 +353,18 @@ A partir del valor numérico obtenido, el sistema categoriza el estado del pacie
 
 ## Behaviour Driven Development
 
+### Historia de usuario - Cálculo del peso corporal ideal (IBW)
+
+**Como** usuario, **quiero** calcular el peso corporal ideal usando la fórmula de Lorentz a partir de mi sexo y mi altura, **para** conocer mi peso óptimo.
+
+Escenarios:
+- Calcular el IBW con valores válidos
+- Error por un sexo distinto a hombre o mujer
+- Error por valores negativos o iguales a cero
+- Error por valores fuera de los límites físicos
+
+Fichero: [ibw_calculo.feature](java-project-healthcalc/src/test/resources/healthcalc/ibw_calculo.feature)
+
 ### Historia de usuario - Cálculo de la Presión Arterial Media (MAP)
 
 **Como** usuario, **quiero** calcular la presión arterial media a partir de la presión sistólica y diastólica, **para** conocer mi presión media de forma correcta.
