@@ -304,7 +304,7 @@ Como usuario preocupado por mi salud (*health-conscious user*), quiero ver mi cl
 **Escenarios:**
 - **Full BMI Classification:** Clasificación del BMI según el valor obtenido (Ej. Severely Underweight, Healthy Weight, Obesity Class I) mediante un *Scenario Outline*.
 
-[Fichero feature](python-project-healthcalc/features/bmi_classification.feature)
+[Fichero feature](python-project-healthcalc/features/bmi.feature)
 
 ---
 
