@@ -2,7 +2,7 @@
 Característica: Cálculo del peso corporal ideal (IBW)
 
     Como usuario
-    Quiero calcular el peso corporal inicial usando la fórmula de Lorentz a partir de mi sexo y mi altura
+    Quiero calcular el peso corporal ideal usando la fórmula de Lorentz a partir de mi sexo y mi altura
     Para conocer mi peso óptimo.
 
     Antecedentes:
