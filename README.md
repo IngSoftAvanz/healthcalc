@@ -416,6 +416,8 @@ Escenarios:
 
 Fichero: [map_clasificacion.feature](java-project-healthcalc/src/test/resources/healthcalc/map_clasificacion.feature)
 
+### Interfaz Gráfica de Usuario
+
 ## Instalación y ejecución
 
 <details>
