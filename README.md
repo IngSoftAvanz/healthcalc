@@ -277,58 +277,6 @@ Para cada categoría, probamos valores que están justo en el límite para asegu
 <details>
 <summary><b>Python</b></summary>
 
----
-
-## Behaviour Driven Development
-
-En esta sección se describen las historias de usuario y sus escenarios asociados, implementados mediante BDD, utilizando Gherkin.
-
----
-
-### BMI Calculation 
-
-Como usuario preocupado por mi salud, quiero calcular mi BMI, para poder monitorizar mi estado de salud.
-
-**Escenarios:**
-- **Calculate standard BMI:** Cálculo de un BMI estándar dados un peso y altura concretos.
-- **Full BMI Classification:** Clasificación del BMI según el valor obtenido (Ej. Severely Underweight, Healthy Weight, Obesity Class I) mediante un *Scenario Outline*.
-
-[Fichero feature](python-project-healthcalc/features/bmi.feature)
-
----
-### BMI Classification
-
-**Historia de usuario:**
-Como usuario preocupado por mi salud (*health-conscious user*), quiero ver mi clasificación completa, para poder monitorizar mi estado de salud.
-
-**Escenarios:**
-- **Full BMI Classification:** Clasificación del BMI según el valor obtenido (Ej. Severely Underweight, Healthy Weight, Obesity Class I) mediante un *Scenario Outline*.
-
-[Fichero feature](python-project-healthcalc/features/bmi.feature)
-
----
-
-### IBW Calculation
-
-**Historia de usuario:**
-Como usuario (*user*), quiero calcular mi peso ideal, para tener una referencia saludable para mi altura.
-
-**Escenarios:**
-- **Calculate IBW for a man:** Cálculo del peso ideal utilizando la fórmula de Lorentz dando una altura y un género específicos.
-
-[Fichero feature](python-project-healthcalc/features/ibw.feature)
-
----
-### Basal Metabolic Rate (WHO)
-
-**Historia de usuario:**
-Como entusiasta del fitness (*fitness enthusiast*), quiero calcular mi BMR, para saber mis necesidades diarias de calorías en reposo.
-
-**Escenarios:**
-- **Calculate standard BMR:** Cálculo del BMR estándar proporcionando un peso, edad y género, utilizando la fórmula de la OMS (WHO).
-
-[Fichero feature](python-project-healthcalc/features/bmr_oms.feature)
-
 ### Dependencias
 - Python 3.13+
 - pytest
@@ -342,12 +290,28 @@ Como entusiasta del fitness (*fitness enthusiast*), quiero calcular mi BMR, para
 3. Crear entorno virtual: `python -m venv venv`
 4. Activar el entorno virtual:
     - En Windows: `.\venv\Scripts\activate`
+    - En macOS/Linux: `source venv/bin/activate`
 5. Instalar dependencias: `pip install pytest pytest-cov`
 
 ### Ejecución
 - Ejecutar el menú de la aplicación: `python main.py`
 - Ejecutar los tests: `pytest -v`
 - Ejecutar los tests con informe de cobertura: `pytest --cov=healthcalc`
+
+### Preparación y Ejecución de la Aplicación Web (Práctica 4)
+Para ejecutar la interfaz gráfica desarrollada con Flask:
+1. Clonar este repositorio y cambiar a la rama `p4`:
+   `git clone https://github.com/IngSoftAvanz/healthcalc.git`
+   `cd healthcalc/python-project-healthcalc`
+   `git checkout p4`
+2. Crear y activar el entorno virtual (si no se ha hecho previamente):
+   - Windows: `python -m venv venv` y luego `.\venv\Scripts\activate`
+   - Linux/macOS: `python3 -m venv venv` y luego `source venv/bin/activate`
+3. Instalar las dependencias (deben incluir el framework Flask): 
+   `pip install -r requirements.txt`
+4. Ejecutar la aplicación web: 
+   `python run.py` *(o el nombre del archivo principal, ej: `app.py`)*
+5. Abrir el navegador y acceder a `http://127.0.0.1:5000`
 
 </details>
 
@@ -373,3 +337,9 @@ Como entusiasta del fitness (*fitness enthusiast*), quiero calcular mi BMR, para
 - Ejecutar los tests con informe de cobertura (previamente configurado en pom.xml): `mvn test`
 
 </details>
+
+## Interfaz Gráfica de Usuario
+
+A continuación, se muestra una captura de pantalla de la aplicación web implementada con Flask y HTML/CSS, diseñada bajo el patrón Modelo-Vista-Controlador (MVC), correspondiente a los requisitos de la Práctica 4:
+
+![Captura de pantalla de la interfaz gráfica de HealthCalc](doc/gui/captura.png)
