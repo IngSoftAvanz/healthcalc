@@ -329,6 +329,12 @@ Como entusiasta del fitness (*fitness enthusiast*), quiero calcular mi BMR, para
 
 [Fichero feature](python-project-healthcalc/features/bmr_oms.feature)
 
+## Interfaz Gráfica de Usuario
+Se ha diseñado un prototipo de interfaz gráfica utilizando Pencil Project que integra los requisitos de usuario, así como el cálculo de las métricas mencionadas anteriormente y la visualización de sus respectivos resultados.
+
+![Prototipo Interfaz Gráfica HealthCalc](Doc/gui/InterfazGrafica.png) 
+
+
 ### Dependencias
 - Python 3.13+
 - pytest
