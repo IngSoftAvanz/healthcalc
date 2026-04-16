@@ -277,6 +277,58 @@ Para cada categoría, probamos valores que están justo en el límite para asegu
 <details>
 <summary><b>Python</b></summary>
 
+---
+
+## Behaviour Driven Development
+
+En esta sección se describen las historias de usuario y sus escenarios asociados, implementados mediante BDD, utilizando Gherkin.
+
+---
+
+### BMI Calculation 
+
+Como usuario preocupado por mi salud, quiero calcular mi BMI, para poder monitorizar mi estado de salud.
+
+**Escenarios:**
+- **Calculate standard BMI:** Cálculo de un BMI estándar dados un peso y altura concretos.
+- **Full BMI Classification:** Clasificación del BMI según el valor obtenido (Ej. Severely Underweight, Healthy Weight, Obesity Class I) mediante un *Scenario Outline*.
+
+[Fichero feature](python-project-healthcalc/features/bmi.feature)
+
+---
+### BMI Classification
+
+**Historia de usuario:**
+Como usuario preocupado por mi salud (*health-conscious user*), quiero ver mi clasificación completa, para poder monitorizar mi estado de salud.
+
+**Escenarios:**
+- **Full BMI Classification:** Clasificación del BMI según el valor obtenido (Ej. Severely Underweight, Healthy Weight, Obesity Class I) mediante un *Scenario Outline*.
+
+[Fichero feature](python-project-healthcalc/features/bmi.feature)
+
+---
+
+### IBW Calculation
+
+**Historia de usuario:**
+Como usuario (*user*), quiero calcular mi peso ideal, para tener una referencia saludable para mi altura.
+
+**Escenarios:**
+- **Calculate IBW for a man:** Cálculo del peso ideal utilizando la fórmula de Lorentz dando una altura y un género específicos.
+
+[Fichero feature](python-project-healthcalc/features/ibw.feature)
+
+---
+### Basal Metabolic Rate (WHO)
+
+**Historia de usuario:**
+Como entusiasta del fitness (*fitness enthusiast*), quiero calcular mi BMR, para saber mis necesidades diarias de calorías en reposo.
+
+**Escenarios:**
+- **Calculate standard BMR:** Cálculo del BMR estándar proporcionando un peso, edad y género, utilizando la fórmula de la OMS (WHO).
+
+[Fichero feature](python-project-healthcalc/features/bmr_oms.feature)
+
 ### Dependencias
 - Python 3.13+
 - pytest
