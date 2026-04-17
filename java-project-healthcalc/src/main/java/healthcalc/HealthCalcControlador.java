@@ -6,11 +6,13 @@ import java.awt.event.ActionEvent;
 public class HealthCalcControlador {
 
 	private HealthCalcView vista;
+	private BMICalculator bmiCalc;
 	private IBWCalculator ibwCalc;
-  private MAPCalculator mapCalc;
+	private MAPCalculator mapCalc;
 
 	public HealthCalcControlador(HealthCalcView vista) {
 		this.vista = vista;
+		this.bmiCalc = new BMICalculator();
 		this.ibwCalc = new IBWCalculator();
 		this.mapCalc = new MAPCalculator();
 
@@ -18,6 +20,45 @@ public class HealthCalcControlador {
 	}
 
 	private void iniciarListeners() {
+		
+		vista.getBtnCalcularBMI().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				vista.getLblErrorBMI().setText("");
+				vista.getLblResultadoBMI().setText("Resultado: ---");
+				vista.getLblClasificacionBMI().setText("Clasificacion: ---");
+				
+				try {
+					String pesoStr = vista.getTxtPeso().getText().trim();
+					String altStr = vista.getTxtAltura().getText().trim();
+					
+					if (pesoStr.isEmpty() || altStr.isEmpty()) {
+		                vista.getLblErrorBMI().setText("Error: debe introducir peso y altura.");
+		                return;
+		            }
+					
+					double peso = Double.parseDouble(pesoStr);
+		            double alturaCm = Double.parseDouble(altStr);
+		            
+		            if (peso <= 0 || alturaCm <= 0) {
+                        vista.getLblErrorBMI().setText("Error: los valores deben ser mayores a cero.");
+                        return;
+                    }
+		            
+		            //convertir a metros
+		            double alturaM = alturaCm / 100.0;
+		            
+		            //cálculo
+		            double bmi = bmiCalc.calcular(peso, alturaM);
+		            vista.getLblResultadoBMI().setText("Resultado: " + String.format("%.2f", bmi));
+		            //clasificación
+		            String clasif = bmiCalc.clasificar(bmi);
+		            vista.getLblClasificacionBMI().setText("Clasificación: " + clasif);
+				}
+				catch (NumberFormatException ex) {
+					vista.getLblErrorBMI().setText("Error: ingrese valores numéricos válidos.");
+				}
+			}
+		});
 
 		vista.getBtnCalcularIBW().addActionListener(new ActionListener() {
 			
