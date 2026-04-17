@@ -416,7 +416,28 @@ Escenarios:
 
 Fichero: [map_clasificacion.feature](java-project-healthcalc/src/test/resources/healthcalc/map_clasificacion.feature)
 
-### Interfaz Gráfica de Usuario
+## Interfaz Gráfica de Usuario
+### Mockup (boceto)
+Se ha elaborado un prototipo para definir la distribución de los componentes.
+![Boceto de la Calculadora](doc/gui/BocetoCalc.png) 
+
+### Implementación
+La interfaz se ha desarrollado utilizando **Java Swing** siguiendo el patrón de diseño **MVC (Modelo–Vista–Controlador)**.
+
+Cada pestaña le permite al usuario calcular y obtener las clasificaciones de una de las siguientes métricas:
+#### BMI - Versión FULL
+![BMI Full](doc/gui/calcBMI.png)
+#### IBW - Fórmula de Lorentz
+![IBW Lorentz](doc/gui/calcIBW.png)
+#### MAP
+![MAP](doc/gui/calcMAP.png)
+
+### Aplicación
+Se ha generado un archivo ejecutable que contiene todas las dependencias necesarias. Para ejecutarlo, asegúrese de tener instalado Java y ejecute el siguiente comando en la raíz del proyecto:
+
+```bash
+java -jar HealthCalc.jar
+```
 
 ## Instalación y ejecución
 
