@@ -31,8 +31,18 @@ public class MainView {
             mainFrame.add(menuVertical);
             mainFrame.setLocationRelativeTo(null);
             mainFrame.setVisible(true);
+
+
+            // --- Panel de BSA---
+            ViewBSAImpl panelBSA = new ViewBSAImpl();
+            CtrBSA controllerBSA = new CtrBSA(panelBSA, model);
+            panelBSA.setController(controllerBSA);
+            menuVertical.addTab("BSA (Masa Corporal)", panelBSA);
             
             
+            mainFrame.add(menuVertical);
+            mainFrame.setLocationRelativeTo(null);
+            mainFrame.setVisible(true);
         });
     }
 }
