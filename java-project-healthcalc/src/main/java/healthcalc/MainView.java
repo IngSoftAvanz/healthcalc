@@ -8,6 +8,7 @@ import javax.swing.SwingUtilities;
 import healthcalc.controller.CtrBMI;
 import healthcalc.controller.CtrBSA;
 import healthcalc.controller.CtrIBW;
+import healthcalc.view.ViewIntroImpl;
 import healthcalc.view.ViewBMIImpl;
 import healthcalc.view.ViewBSAImpl;
 import healthcalc.view.ViewIBWImpl;
@@ -21,6 +22,10 @@ public class MainView {
             mainFrame.setSize(700, 500);
 
             JTabbedPane menuVertical = new JTabbedPane(JTabbedPane.LEFT);
+            
+            // --- Bienvenida ---
+            ViewIntroImpl panelIntro = new ViewIntroImpl();
+            menuVertical.addTab("Inicio", panelIntro);
 
          // Panel de BMI
             ViewBMIImpl panelBMI = new ViewBMIImpl();
