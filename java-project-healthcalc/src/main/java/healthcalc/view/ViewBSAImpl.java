@@ -13,16 +13,9 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-import javax.swing.UIManager;
-
-import healthcalc.exceptions.InvalidHealthDataException;
-import java.awt.GridLayout;
 import javax.swing.border.EmptyBorder;
-import org.eclipse.wb.swing.FocusTraversalOnArray;
-import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.SystemColor;
 
 public class ViewBSAImpl extends JPanel implements ViewBSA {
 	/**
