@@ -32,6 +32,15 @@ public class MainView {
             mainFrame.setLocationRelativeTo(null);
             mainFrame.setVisible(true);
 
+            // --- Panel de IBW---
+            ViewIBWImpl panelIBW = new ViewIBWImpl();
+            CtrIBW controllerIBW = new CtrIBW(model, panelIBW);
+            panelIBW.setController(controllerIBW);
+            menuVertical.addTab("IBW (Peso Ideal)", panelIBW);
+         
+            mainFrame.add(menuVertical);
+            mainFrame.setLocationRelativeTo(null);
+            mainFrame.setVisible(true);
 
             // --- Panel de BSA---
             ViewBSAImpl panelBSA = new ViewBSAImpl();
