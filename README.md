@@ -348,12 +348,28 @@ Se ha diseñado un prototipo de interfaz gráfica utilizando Pencil Project que 
 3. Crear entorno virtual: `python -m venv venv`
 4. Activar el entorno virtual:
     - En Windows: `.\venv\Scripts\activate`
+    - En macOS/Linux: `source venv/bin/activate`
 5. Instalar dependencias: `pip install pytest pytest-cov`
 
 ### Ejecución
 - Ejecutar el menú de la aplicación: `python main.py`
 - Ejecutar los tests: `pytest -v`
 - Ejecutar los tests con informe de cobertura: `pytest --cov=healthcalc`
+
+### Preparación y Ejecución de la Aplicación Web (Práctica 4)
+Para ejecutar la interfaz gráfica desarrollada con Flask:
+1. Clonar este repositorio y cambiar a la rama `p4`:
+   `git clone https://github.com/IngSoftAvanz/healthcalc.git`
+   `cd healthcalc/python-project-healthcalc`
+   `git checkout p4`
+2. Crear y activar el entorno virtual (si no se ha hecho previamente):
+   - Windows: `python -m venv venv` y luego `.\venv\Scripts\activate`
+   - Linux/macOS: `python3 -m venv venv` y luego `source venv/bin/activate`
+3. Instalar las dependencias (deben incluir el framework Flask): 
+   `pip install -r requirements.txt`
+4. Ejecutar la aplicación web: 
+   `python run.py` *(o el nombre del archivo principal, ej: `app.py`)*
+5. Abrir el navegador y acceder a `http://127.0.0.1:5000`
 
 </details>
 
@@ -379,3 +395,9 @@ Se ha diseñado un prototipo de interfaz gráfica utilizando Pencil Project que 
 - Ejecutar los tests con informe de cobertura (previamente configurado en pom.xml): `mvn test`
 
 </details>
+
+## Interfaz Gráfica de Usuario
+
+A continuación, se muestra una captura de pantalla de la aplicación web implementada con Flask y HTML/CSS, diseñada bajo el patrón Modelo-Vista-Controlador (MVC):
+
+![Captura de pantalla de la interfaz gráfica de HealthCalc](doc/gui/captura.png)
