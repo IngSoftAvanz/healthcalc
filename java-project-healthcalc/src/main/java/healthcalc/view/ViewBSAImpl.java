@@ -201,6 +201,7 @@ public class ViewBSAImpl extends JPanel implements ViewBSA {
 	@Override
 	public void setResult(String res) {
 		this.lbResultado.setText(res + " m²");
+		lbResultado.setForeground(new Color(0, 100, 0));
 		// Ocultar warning si hay éxito
 		this.txtArea_warning_alt.setText(" ");
 		this.txtArea_warning_peso.setText(" ");
