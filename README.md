@@ -400,4 +400,4 @@ Para ejecutar la interfaz gráfica desarrollada con Flask:
 
 A continuación, se muestra una captura de pantalla de la aplicación web implementada con Flask y HTML/CSS, diseñada bajo el patrón Modelo-Vista-Controlador (MVC):
 
-![Captura de pantalla de la interfaz gráfica de HealthCalc](doc/gui/captura.png)
+![Captura de pantalla de la interfaz gráfica de HealthCalc](Doc/gui/InterfazGrafica.png)
