@@ -1,0 +1,54 @@
+PRÁCTICA 7: REFACTORINGS APLICADOS
+
+Refactoring 1: Creación de Person y uso de enumeraciones
+
+1. Bad smell o problema detectado:
+En la implementación anterior se usaban directamente tipos primitivos y cadenas de texto para representar datos como el peso, la altura, la edad o el género. Esto podía hacer que el código fuera menos claro y más propenso a errores, por ejemplo al escribir el género de distintas formas.
+
+2. Refactoring aplicado:
+Introduce Parameter Object y Replace Type Code with Enum.
+
+3. Tipo/categoría del refactoring:
+Class refactoring y attribute refactoring.
+
+4. Descripción del cambio realizado:
+Se ha creado una interfaz Person para agrupar los datos principales de una persona que se utilizan en los cálculos de salud. Además, se han añadido las enumeraciones Gender y BMICategory para representar el género y las categorías de IMC de una forma más estructurada y segura.
+
+5. Cambios manuales realizados:
+Se han creado tres archivos nuevos: person.py, gender.py y bmi_category.py. También se ha modificado el archivo __init__.py para añadir las nuevas clases y enumeraciones al paquete.
+
+
+Refactoring 2: Métodos de cálculo a partir de un objeto Person
+
+1. Bad smell o problema detectado:
+Algunos métodos recibían varios parámetros por separado, como peso, altura, edad o género. Esto hacía que las llamadas a los métodos fueran más largas y menos intuitivas, además de dificultar posibles cambios futuros en los datos de entrada.
+
+2. Refactoring aplicado:
+Introduce Parameter Object.
+
+3. Tipo/categoría del refactoring:
+Method refactoring.
+
+4. Descripción del cambio realizado:
+Se han añadido nuevos métodos en la clase HealthCalcImpl que reciben directamente un objeto Person. De esta forma, los datos necesarios para cada cálculo se obtienen desde ese objeto, manteniendo al mismo tiempo los métodos anteriores para no romper la funcionalidad ya existente ni los tests previos.
+
+5. Cambios manuales realizados:
+Se han añadido cuatro métodos nuevos en health_calc_impl.py: bmi_from_person, bmi_category_from_person, ibw_from_person y bmr_from_person.
+
+
+Refactoring 3: Separación de interfaces según el tipo de métrica
+
+1. Bad smell o problema detectado:
+La calculadora agrupaba varias responsabilidades relacionadas con distintas métricas de salud en una misma estructura. Esto podía hacer que el diseño fuera menos flexible y que la clase principal asumiera demasiadas funciones.
+
+2. Refactoring aplicado:
+Extract Interface y Split Interface.
+
+3. Tipo/categoría del refactoring:
+Class refactoring.
+
+4. Descripción del cambio realizado:
+Se han creado interfaces separadas para organizar mejor las métricas de salud. En concreto, se ha creado BasalMetabolicIndex para las operaciones relacionadas con el IMC e IdealBodyWeight para el cálculo del peso ideal. Después, HealthCalcImpl se ha actualizado para implementar estas nuevas interfaces.
+
+5. Cambios manuales realizados:
+Se han creado dos archivos nuevos: basal_metabolic_index.py e ideal_body_weight.py. También se ha modificado la declaración de la clase HealthCalcImpl para que implemente estas interfaces nuevas.
